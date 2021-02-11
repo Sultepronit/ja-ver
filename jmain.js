@@ -104,12 +104,14 @@ allau[eau]=mms[wn][1][x];
 //var a = new Audio();
 function sou0(k)
 {var a = new Audio();
-//var akan=mms[wn][0][0]; if(akan=="["){akan=mms[wn][0][1];}
+a.src="sound/"+allau[k]+'.mp3';
+a.play();
+a.onerror = function(){
 var kan00=vypka(1);
-//$(".transl").append("SFSDF"+wn+kan00);
 a.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+allau[k]+'&kanji='+kan00;
 a.play();
 a.onended = function(){ if(k<eau){sou0(++k);} }
+}
 }
 
 function sou(vo)
@@ -124,7 +126,7 @@ var bubu=0;
 	if(bul==0){bul=1; //np=vyp(0,1);
 	np=0;
 	tim++; tip++;
-	if(tip>kss-2){tip=0;}
+	if(tip>kss-1){tip=0;}
 	//wn = (vyp(0,kss))+1;
 	///////////////
 	for(x=0;x<100;x++)
@@ -144,15 +146,16 @@ var bubu=0;
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][np+5]+"</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
 		if(np==0){
-		$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");
+		if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");	}
+		else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
 		$(".transl").replaceWith("<p class='transl'> </p>");
-		//$(".transc").replaceWith("<p class='transc'>"+atoa1(mms[wn][1])+"</p>");
-		//kann=atoa1(mms[wn][1][0]);
+		if(wn<ksS)
+		{
 		$(".transc").replaceWith("<div class='transc'>");
-		//$(".transc").append( "<div class='ccc'>//</div>" );
-		//$(".transc").append( vsit(wn) ,"</p>" );
 		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
 		if(ifa){ sou(); }
+		}
+		//else{}
 		}
 		else{
 		$(".orig").replaceWith("<p class='orig'> </p>");
@@ -160,14 +163,16 @@ var bubu=0;
 		}
 	}else{bul=0;
 	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
-	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");
+	if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	}
+	else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
+	//$(".orig").replaceWith("<p class='orig'>//"+vsika(wn)+"</p>");
 		if(np==0){
 		$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
 		}
 		else{
 		//$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");
 		}
-	//if(ifa){ sou(); }
+	if(ifa){ sou(); }
 	}
 }
 
