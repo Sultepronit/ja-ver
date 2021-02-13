@@ -5,7 +5,7 @@ var ifa = 0;
 var np = 0;
 var a = new Audio();
 var bu = [0,0,0];
-var tip = -1;
+var tip = 0;
 var ki0 = 0;
 var bu0=0;
 var kanpys0=0;
@@ -126,10 +126,18 @@ var kann='';
 function word(pm){
 var bubu=0;
 
-	if(bul==0){bul=1; //np=vyp(0,1);
-	np=0;
+	if(bul==0){bul=1; 
 	tim++; tip++;
-	if(tip>kss-3){tip=0;
+	if(tim>1){
+	if(pm>0)
+	{	vp[wn][np+1]++;	}
+	else
+	{	vp[wn][np+1]--;	}
+	}
+	
+	np=0; //np=vyp(0,1);
+	//tim++; tip++;
+	if(tip>kss-4){tip=0;
 	//$(".main").replaceWith(vp);
 	var res='';
 	for(x=1;x<kss;x++)
@@ -137,26 +145,28 @@ var bubu=0;
 		//res+=vypka(x);
 		res+="<p class='res'>["+x+", "+vp[x][1]+", "+vp[x][2]+"], <p>";
 	}
+	//res+=bu;
 	res+="<p style='font-size:4em'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
 	res+="<p style='font-size:4em'>Тобі — чомк&#128536, мені — скрін!</p>";
 	a.src="sound/omedetou.mp3";
-	a.play();
+	//a.play();
 	$(".main").replaceWith(res);
 	}
 	//wn = (vyp(0,kss))+1;
 	///////////////
-	for(x=0;x<100;x++)
+	for(x=0;x<1000;x++)
 	{
 	wn = vyp( 1,(kss-1) );
-		if( kanpys0<(kss-ksS) ){
+		/*if( kanpys0<(kss-ksS) ){
 			if(kanpys0*4<tip){
-				if(wn<ksS){continue;}	}	}
+				if(wn<ksS){continue;}	}	}*/
 		if(wn==bu0){continue;}
-		for(y=1;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
+		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
 		if(bubu){bubu=0; continue;}
+	if(pm<0){tip-=1;}
 	bu[tip]=wn;
 	bu0=wn;
-	if(pm<0){tip--;}
+	//if(pm<0){tip-=1;}
 	//vp[6][np+1]++;
 	break;
 	}
@@ -176,7 +186,7 @@ var bubu=0;
 		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
 		if(ifa){ sou(); }
 		}
-		else{kanpys0++;}
+		//else{kanpys0++; if(pm<0){kanpys0--;} }
 		
 		}
 		else{
@@ -184,14 +194,6 @@ var bubu=0;
 		$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
 		}
 	}else{bul=0;
-	if(pm>0)
-	{
-		vp[wn][np+1]++;
-	}
-	else
-	{
-		vp[wn][np+1]--;
-	}
 	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
 	if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	}
 	else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
