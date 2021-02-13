@@ -145,6 +145,7 @@ var bubu=0;
 	if(tim<2){$(".time").append(" "+kss);}
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][np+5]+"</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
+	$(".gif").replaceWith("<div class='gif'> </div>");
 		if(np==0){
 		if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");	}
 		else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
@@ -155,7 +156,7 @@ var bubu=0;
 		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
 		if(ifa){ sou(); }
 		}
-		//else{}
+		//else{ }
 		}
 		else{
 		$(".orig").replaceWith("<p class='orig'> </p>");
@@ -168,6 +169,12 @@ var bubu=0;
 	//$(".orig").replaceWith("<p class='orig'>//"+vsika(wn)+"</p>");
 		if(np==0){
 		$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
+		if(wn>=ksS){
+		//$(".gif").append("<img class='k2' src='kanji-wp/1"+mms[wn][1]+".gif'>");
+		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1]+".gif'>");
+		//$(".gif").replaceWith("<img class='k2' src='kanji-wp/1"+mms[wn][1]+".gif'>");
+		}
+		
 		}
 		else{
 		//$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");
