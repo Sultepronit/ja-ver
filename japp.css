@@ -62,6 +62,10 @@ body {
 	clear: both;
 }
 
+img {
+width: 1.6em;
+}
+
 .gr {color: gray;} /*#999999;}*/
 
 .re {color: red;}
