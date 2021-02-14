@@ -10,17 +10,12 @@ var reti = [0,0,0];
 var reed = 0;
 var reka = ['','',''];
 
-var sps = ['の','ょ','ん','ま','た'];
+var sps = ['','',''];
 var ski = [0,0,0,0,0];
 var ska=5;
 
 function atoa1(aaa)
 {wor=aaa;
-
-//sps=['の','ょ','ん'];
-//sps[0]='の';
-//ski[0]=1;
-//ska=1;
 
 for(x=0;x<999;x++)
 {
@@ -50,25 +45,26 @@ for(x=1;;x++)
 			buk[x-1]='С'; mit[x-1]=2; break;
 			}
 		}
-
-		if(wor[x-1]=='。')
+			
+		break;}
+	
+	if(wor[x]=='。')
 		{
-			if(buk[x-2]=='СУ')//す。
+			if(buk[x-1]=='СУ')//す。
 			{
 			for(;;){
-			if(buk[x-3]=='О'){break;}
-			buk[x-2]='С'; mit[x-2]=2; break;			}
+			if(buk[x-2]=='О'){break;}
+			buk[x-1]='С'; mit[x-1]=2; break;			}
 			}
-			if(wor[x-2]=='か' && wor[x-3]=='　')//すか。
+			if(wor[x-1]=='か' && wor[x-2]=='　')//すか。
 			{
-				buk[x-4]='С'; mit[x-4]=2;
+				if(wor[x-3]=='す'){buk[x-3]='С'; mit[x-3]=2;}
 			}
 		}
-		
-		break;}
-		
+	
 	if(wor[x]=='ゑ'){kan[x]='へ'; mit[x]=3; continue;}
 	if(wor[x]=='ゐ'){kan[x]='は'; mit[x]=3; continue;}
+	if(wor[x]=='は' && wor[x-1]=='ち'){buk[x]='ВА'; mit[x]=3; continue;}
 	
 	if(buk[x-1]=='ц'){buk[x-1]=buk[x][0];}
 	if(buk[x]=='І')
@@ -146,13 +142,45 @@ for(x=1;;x++)
 return out1();
 }
 
+function tada(vk1)
+{var re='';
+	for(;;){
+	if(vk1=='た'){re='だ'; break;}
+	if(vk1=='か'){re='が'; break;}
+	if(vk1=='て'){re='で'; break;}
+	if(vk1=='せ'){re='ぜ'; break;}
+	if(vk1=='ち'){re='ぢ'; break;}
+	if(vk1=='と'){re='ど'; break;}
+	if(vk1=='さ'){re='ざ'; break;}
+	if(vk1=='く'){re='ぐ'; break;}
+	if(vk1=='き'){re='ぎ'; break;} 
+	if(vk1=='す'){re='ず'; break;} 
+	if(vk1=='し'){re='じ'; break;}
+	//if(vk1=='か'){re='が'; break;}
+	re=vk1; break;
+	}
+return re;
+}
+function ifkaye(vk0)
+{var re=0;
+	for(y=1;y<ks;y++)
+	{
+		if( (tada(vk0))==mm[y][0] ){re=1; break;}
+	}
+return re;
+}
+
 function out1()
 {
 var oou = "<div class='js'>";
 for(x=0;x<aed;x++)
 {
+
 	oou+="<div class='jw'>";
 	if(mit[x]==0){
+	
+	//if( ifkaye(wor[x]) ){buk[x]='▼';}
+		
 	oou+="<p class='trs'>"+buk[x]+"</p>";
 	oou+="<p class='jj'>"+wor[x]+"</p>";}
 	else{
@@ -202,8 +230,9 @@ for(x=0,p=0;x<reed;x++)//znaxodymo kana-vidpovidnyky do kanji
 {p=0;
 if(reti[x]==1)
 {
-	for(y=1;y<kss;y++)
+	for(y=1;/*y<kss*/;y++)
 	{
+		if(mms[y][0]=='end'){break;}
 		if(ret[x]==mms[y][0][0]){reka[x]=mms[y][1][0]; p=1; break;}
 	}
 	if(p>0){continue;}
@@ -227,55 +256,3 @@ if(reti[x]==1)
 //return out1();
 return atoa1( tokana0() );
 }
-
-/*var main = function()
-{"use strict";
-
-$(".r1").append( atoa1("こんにちゐ") );
-$(".r1").append( "<p class='ua2'>Доброго дня!</p>" );
-$(".r1").append("<div class='ua3'>・Бути</div>");
-for(var x=0;x<3;x++)
-{
-//ret0 = retm[xx][0];
-//rere(retm[xx][0]);
-//$(".r1").append("<br>",ret,"<br>",reti,'<br>',reka);
-$(".r1").append( rere( retm[x][0] ) );
-$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );
-}
-//$(".r1").append( atoa1("の") );
-$(".r1").append("<div class='ua3'>・の — стосунок</div>");
-for(var x=3;x<7;x++)
-{
-$(".r1").append( rere( retm[x][0] ) );
-$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );
-}
-$(".r1").append("<div class='ua3'>・Дієслова</div>");
-for(var x=7;x<11;x++)
-{
-$(".r1").append( rere( retm[x][0] ) );
-$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );
-}
-$(".r1").append("<div class='ua3'>・Питання</div>");
-$(".r1").append("<div class='ua3'>・Заперечення</div>");
-$(".r1").append("<div class='ua3'>・も — також</div>");
-$(".r1").append("<div class='ua3'>・Скорочення</div>");
-$(".r1").append("<div class='ua3'>・へ — до</div>");
-$(".r1").append("<div class='ua3'>・Пропозиція</div>");
-$(".r1").append("<div class='ua3'>・</div>");
-
-$(".lili").replaceWith('<section class="lili"></section>');
-var kkkk="た";
-var ccc= kkkk.charCodeAt(0);
-$(".lili").append(ccc);
-for(x=0;x<ska;x++)
-{
-	if(sps[x]=='　'){continue;}
-	if(sps[x]=='。'){continue;}
-	if(sps[x]=='だ'){continue;}
-	if(ski[x]>2){
-	$(".lili").append(sps[x],ski[x],", "); }
-}
-
-}
-
-$(document).ready(main);*/
