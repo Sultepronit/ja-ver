@@ -135,8 +135,9 @@ var bubu=0;
 	{	vp[wn][np+1]--;	}
 	}
 	
-	np=0; //np=vyp(0,1);
-	//tim++; tip++;
+	//np=0;
+	//np=vyp(0,1);
+	
 	if(tip>kss-4){tip=0;
 	//$(".main").replaceWith(vp);
 	var res='';
@@ -149,7 +150,7 @@ var bubu=0;
 	res+="<p style='font-size:4em'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
 	res+="<p style='font-size:4em'>Тобі — чомк&#128536, мені — скрін!</p>";
 	a.src="sound/omedetou.mp3";
-	a.play();
+	//a.play();
 	$(".main").replaceWith(res);
 	}
 	//wn = (vyp(0,kss))+1;
@@ -166,10 +167,10 @@ var bubu=0;
 	if(pm<0){tip-=1;}
 	bu[tip]=wn;
 	bu0=wn;
-	//if(pm<0){tip-=1;}
-	//vp[6][np+1]++;
 	break;
 	}
+	
+	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
 	////////////////
 	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+kss+"</p>");
 	//if(tim<2){$(".time").append(" "+kss);}
@@ -208,7 +209,8 @@ var bubu=0;
 		
 		}
 		else{
-		//$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");
+		$(".transc").replaceWith("<div class='transc'>");
+		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
 		}
 	if(ifa){ sou(); }
 	}
