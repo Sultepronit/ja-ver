@@ -192,7 +192,10 @@ var bubu=0;
 		}
 		else{
 		$(".orig").replaceWith("<p class='orig'> </p>");
-		$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
+		//$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
+			vtr="<div class='transl'>"+mms[wn][2]+"";
+			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
+		$(".transl").replaceWith(vtr);
 		}
 	}else{bul=0;
 	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
@@ -200,7 +203,9 @@ var bubu=0;
 	else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
 	//$(".orig").replaceWith("<p class='orig'>//"+vsika(wn)+"</p>");
 		if(np==0){
-		$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
+			vtr="<div class='transl'>"+mms[wn][2]+"";
+			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
+		$(".transl").replaceWith(vtr);
 		if(wn>=ksS){
 		//$(".gif").append("<img class='k2' src='kanji-wp/1"+mms[wn][1]+".gif'>");
 		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1]+".gif'>");
