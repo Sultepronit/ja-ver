@@ -150,7 +150,7 @@ var bubu=0;
 	res+="<p style='font-size:4em'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
 	res+="<p style='font-size:4em'>Тобі — чомк&#128536, мені — скрін!</p>";
 	a.src="sound/omedetou.mp3";
-	//a.play();
+	a.play();
 	$(".main").replaceWith(res);
 	}
 	//wn = (vyp(0,kss))+1;
