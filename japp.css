@@ -55,15 +55,11 @@ body {
 }
 
 .transc {
-	/*font-size: 1.5em;*/
 	text-align: center;
-	/*max-width: 10em;*/
 	margin-left: auto;
     margin-right: auto;
 	margin-left:10%;
-	/*left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) }*/
+
 }
 
 .ccc {
@@ -78,6 +74,11 @@ body {
 
 img {
 width: 1.6em;
+}
+
+.transl img {
+width: 70%;
+clear: both;
 }
 
 .gr {color: gray;} /*#999999;}*/
