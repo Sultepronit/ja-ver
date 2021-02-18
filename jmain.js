@@ -138,7 +138,7 @@ var bubu=0;
 	//np=0;
 	//np=vyp(0,1);
 	
-	if(tip>kss-4){tip=0;
+	if(tip>kss-5){tip=0;
 	//$(".main").replaceWith(vp);
 	var res='';
 	for(x=1;x<kss;x++)
