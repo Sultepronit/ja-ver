@@ -9,6 +9,7 @@ var tip = 0;
 var ki0 = 0;
 var bu0=0;
 var kanpys0=0;
+var P=0, M=0;
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
@@ -130,9 +131,9 @@ var bubu=0;
 	tim++; tip++;
 	if(tim>1){
 	if(pm>0)
-	{	vp[wn][np+1]++;	}
+	{	vp[wn][np+1]++;	P++;}
 	else
-	{	vp[wn][np+1]--;	}
+	{	vp[wn][np+1]--;	M++;}
 	}
 	
 	//np=0;
@@ -147,6 +148,7 @@ var bubu=0;
 		res+="<p class='res'>["+x+", "+vp[x][1]+", "+vp[x][2]+"], <p>";
 	}
 	//res+=bu;
+	res+="<p style='font-size:4em'>"+P+"/"+M+"</p>";
 	res+="<p style='font-size:4em'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
 	res+="<p style='font-size:4em'>Тобі — чомк&#128536, мені — скрін!</p>";
 	a.src="sound/omedetou.mp3";
@@ -172,7 +174,7 @@ var bubu=0;
 	
 	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
 	////////////////
-	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+kss+"</p>");
+	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+kss+" "+P+"/"+M+"</p>");
 	//if(tim<2){$(".time").append(" "+kss);}
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][np+5]+"</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
