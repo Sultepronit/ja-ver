@@ -23,7 +23,7 @@ $(".r1").append("<div class='ua3'>・Заперечення</div>");
 for(var x=14;x<21;x++)
 {	$(".r1").append( rere( retm[x][0] ) );
 	$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );	}
-/*$(".r1").append("<div class='ua3'>・へ — до</div>");
+$(".r1").append("<div class='ua3'>・へ — до</div>");
 for(var x=21;x<24;x++)
 {	$(".r1").append( rere( retm[x][0] ) );
 	$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );	}
@@ -31,7 +31,7 @@ $(".r1").append("<div class='ua3'>・も — також</div>");
 for(var x=24;x<26;x++)
 {	$(".r1").append( rere( retm[x][0] ) );
 	$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );	}
-$(".r1").append("<div class='ua3'>・Скорочення</div>");
+/*$(".r1").append("<div class='ua3'>・Скорочення</div>");
 for(var x=26;x<32;x++)
 {	$(".r1").append( rere( retm[x][0] ) );
 	$(".r1").append( "<p class='ua2'>"+retm[x][1]+"</p>" );	}
