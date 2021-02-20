@@ -123,7 +123,12 @@ clear: both;
 
 
 .res {
-font-size: 3em;
+font-size: 4em;
 float: left;
-margin: 3px;
+/*margin: 1%;*/
+}
+
+.resx {
+font-size: 3.5em;
+clear:both;
 }

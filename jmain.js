@@ -10,6 +10,7 @@ var ki0 = 0;
 var bu0=0;
 var kanpys0=0;
 var P=0, M=0;
+var sp0=0;
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
@@ -123,6 +124,24 @@ allauf();
 if(eau>-1){ sou0(0); }
 //$(".transl").append("SFSDF"+wn);
 }
+
+function resf()
+{
+	var res='';
+	for(x=1;x<kss;x++)
+	{
+		if( (vp[x][1]+vp[x][2])>0 ){
+		res+="<span class='res'> ["+x+","+vp[x][1]+","+vp[x][2]+"], </span>";
+		}
+	}
+	res+="<p class='resx'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
+	res+="<p class='resx'>Тобі — чомк&#128536, мені — скрін!</p>";
+	res+="<p style='font-size:4em'>"+P+"/"+M+"</p>";
+	a.src="sound/omedetou.mp3";
+	a.play();
+	$(".main").replaceWith(res);
+}
+
 var kann='';
 function word(pm){
 var bubu=0;
@@ -136,33 +155,19 @@ var bubu=0;
 	{	vp[wn][np+1]--;	M++;}
 	}
 	
-	//np=0;
-	//np=vyp(0,1);
+	if(tip>kv+spp-5){tip=0;
+	resf();
 	
-	if(tip>kss-5){tip=0;
-	//$(".main").replaceWith(vp);
-	var res='';
-	for(x=1;x<kss;x++)
-	{
-		//res+=vypka(x);
-		res+="<p class='res'>["+x+", "+vp[x][1]+", "+vp[x][2]+"], <p>";
 	}
-	//res+=bu;
-	res+="<p style='font-size:4em'>"+P+"/"+M+"</p>";
-	res+="<p style='font-size:4em'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
-	res+="<p style='font-size:4em'>Тобі — чомк&#128536, мені — скрін!</p>";
-	a.src="sound/omedetou.mp3";
-	a.play();
-	$(".main").replaceWith(res);
-	}
-	//wn = (vyp(0,kss))+1;
+	
 	///////////////
 	for(x=0;x<1000;x++)
 	{
 	wn = vyp( 1,(kss-1) );
-		/*if( kanpys0<(kss-ksS) ){
-			if(kanpys0*4<tip){
-				if(wn<ksS){continue;}	}	}*/
+		if(vp[wn][0]>0){
+			if(sp0>=spp){continue;}
+			sp0++;
+		}
 		if(wn==bu0){continue;}
 		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
 		if(bubu){bubu=0; continue;}
@@ -174,9 +179,9 @@ var bubu=0;
 	
 	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
 	////////////////
-	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+kss+" "+P+"/"+M+"</p>");
+	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
 	//if(tim<2){$(".time").append(" "+kss);}
-	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][np+5]+"</p>");
+	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][0]+"</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
 	$(".gif").replaceWith("<div class='gif'> </div>");
 		if(np==0){
