@@ -130,7 +130,7 @@ function resf()
 	var res='';
 	for(x=1;x<kss;x++)
 	{
-		if( (vp[x][1]+vp[x][2])>0 ){
+		if( (vp[x][1]) || (vp[x][2]) ){
 		res+="<span class='res'> ["+x+","+vp[x][1]+","+vp[x][2]+"], </span>";
 		}
 	}
