@@ -155,7 +155,7 @@ var bubu=0;
 	{	vp[wn][np+1]--;	M++;}
 	}
 	
-	if(tip>kv+spp-25){tip=0;
+	if(tip>kv+spp-5){tip=0;
 	resf();
 	
 	}
