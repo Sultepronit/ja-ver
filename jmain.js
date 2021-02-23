@@ -155,7 +155,7 @@ var bubu=0;
 	{	vp[wn][np+1]--;	M++;}
 	}
 	
-	if(tip>kv+spp-5){tip=0;
+	if(tip>kv+spp-25){tip=0;
 	resf();
 	
 	}
@@ -178,6 +178,8 @@ var bubu=0;
 	}
 	
 	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
+	//if(vp[wn][0]>0){np=vyp(0,1);}
+	if(vp[wn][0]>0){np=vyp(0,1);}
 	////////////////
 	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
 	//if(tim<2){$(".time").append(" "+kss);}
