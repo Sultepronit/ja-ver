@@ -152,7 +152,7 @@ var bubu=0;
 	if(pm>0)
 	{	vp[wn][np+1]++;	P++;}
 	else
-	{	vp[wn][np+1]--;	M++;}
+	{	vp[wn][np+1]--;	M++; tip--;}
 	}
 	
 	if(tip>kv+spp-5){tip=0;
@@ -171,7 +171,7 @@ var bubu=0;
 		if(wn==bu0){continue;}
 		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
 		if(bubu){bubu=0; continue;}
-	if(pm<0){tip-=1;}
+	//if(pm<0){tip-=1;}
 	bu[tip]=wn;
 	bu0=wn;
 	break;
