@@ -73,7 +73,11 @@ body {
 }
 
 img {
-width: 1.6em;
+width: 2.3em;
+}
+
+.k2 {
+/*padding-top:1em;*/
 }
 
 .transl img {
@@ -131,4 +135,8 @@ float: left;
 .resx {
 font-size: 3.5em;
 clear:both;
+}
+
+.bgk {
+	font-size: 1.5em;
 }

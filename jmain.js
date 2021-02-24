@@ -188,7 +188,7 @@ var bubu=0;
 	$(".gif").replaceWith("<div class='gif'> </div>");
 		if(np==0){
 		if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");	}
-		else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
+		else{ $(".orig").replaceWith("<p class='orig'><span class='bgk'>"+vsit(wn)+"</span></p>");	}
 		$(".transl").replaceWith("<p class='transl'> </p>");
 		if(wn<ksS)
 		{
@@ -209,8 +209,8 @@ var bubu=0;
 	}else{bul=0;
 	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
 	if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	}
-	else{ $(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");	}
-	//$(".orig").replaceWith("<p class='orig'>//"+vsika(wn)+"</p>");
+	else{ /*$(".orig").replaceWith("<p class='orig'>"+vsit(wn)+"</p>");*/	}
+	
 		if(np==0){
 			vtr="<div class='transl'>"+mms[wn][2]+"";
 			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
