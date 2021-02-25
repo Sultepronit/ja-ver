@@ -145,6 +145,7 @@ function resf()
 var kann='';
 function word(pm){
 var bubu=0;
+var pov0=0;
 
 	if(bul==0){bul=1; 
 	tim++; tip++;
@@ -171,6 +172,9 @@ var bubu=0;
 		if(wn==bu0){continue;}
 		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
 		if(bubu){bubu=0; continue;}
+	if(vp[wn][3]+vp[wn][4]>2){
+	if(pov0);else{pov0++; continue;}
+	}
 	//if(pm<0){tip-=1;}
 	bu[tip]=wn;
 	bu0=wn;
