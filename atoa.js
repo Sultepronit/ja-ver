@@ -29,8 +29,8 @@ kan[x]=wor[x];
 	
 	for(y=0;y<=ska;y++)
 	{
-		if(wor[x]==sps[y]){ski[y]++; break;}
-		if(y==ska){sps[ska++]=wor[x]; ski[y]=1; break;}
+		if( (tada(wor[x])) == sps[y]){ski[y]++; break;}
+		if(y==ska){sps[ska++]=tada(wor[x]); ski[y]=1; break;}
 	}
 }
 mit[0]=0;
@@ -45,7 +45,7 @@ for(x=1;;x++)
 			buk[x-1]='С'; mit[x-1]=2; break;
 			}
 		}
-			
+				
 		break;}
 	
 	if(wor[x]=='。')
@@ -61,7 +61,14 @@ for(x=1;;x++)
 				if(wor[x-3]=='す'){buk[x-3]='С'; mit[x-3]=2;}
 			}
 		}
-	
+		
+	if(buk[x-1]=='СУ')
+		{
+			if(wor[x]=='　' && wor[x+1]=='ね')
+			{	buk[x-1]='С'; mit[x-1]=2; }
+		}
+	if(wor[x-1]=='で' && wor[x]=='す'){ buk[x]='С'; mit[x]=2; }
+			
 	if(wor[x]=='ゑ'){kan[x]='へ'; mit[x]=3; continue;}
 	if(wor[x]=='ゐ'){kan[x]='は'; mit[x]=3; continue;}
 	if(wor[x]=='は' && wor[x-1]=='ち'){buk[x]='ВА'; mit[x]=3; continue;}
@@ -156,16 +163,23 @@ function tada(vk1)
 	if(vk1=='き'){re='ぎ'; break;} 
 	if(vk1=='す'){re='ず'; break;} 
 	if(vk1=='し'){re='じ'; break;}
-	//if(vk1=='か'){re='が'; break;}
+	if(vk1=='は'){re='ぱ'; break;}
+	if(vk1=='ば'){re='ぱ'; break;}
+	if(vk1=='ょ'){re='よ'; break;}
+	if(vk1=='ゃ'){re='や'; break;}
+	if(vk1=='ゅ'){re='ゆ'; break;}
+	if(vk1=='こ'){re='ご'; break;}
 	re=vk1; break;
 	}
 return re;
 }
+
+
 function ifkaye(vk0)
 {var re=0;
 	for(y=1;y<ks;y++)
 	{
-		if( (tada(vk0))==mm[y][0] ){re=1; break;}
+		if( (tada(vk0))==mm[y][0] ){ if(vpk[y][0]>0){re=1;} break;}
 	}
 return re;
 }
@@ -175,12 +189,18 @@ function out1()
 var oou = "<div class='js'>";
 for(x=0;x<aed;x++)
 {
-
+	/*for(y=1;y<ks;y++)
+	{
+		if(wor[x]==mm[y][0]){buk[x]='▼'; break;}
+	}*/
+	if( wor[x]=='b'){oou+="</div><div class='js'>"; continue;}
 	oou+="<div class='jw'>";
 	if(mit[x]==0){
 	
-	//if( ifkaye(wor[x]) ){buk[x]='▼';}
-		
+	if( ifkaye(wor[x]) ){
+		if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}
+		}
+			
 	oou+="<p class='trs'>"+buk[x]+"</p>";
 	oou+="<p class='jj'>"+wor[x]+"</p>";}
 	else{
@@ -188,8 +208,19 @@ for(x=0;x<aed;x++)
 	oou+="<p class='trs'><span class='red'>"+buk[x]+"</span></p>";
 	oou+="<p class='jj'><span class='red'>"+kan[x]+"</span></p>";	}
 	if(mit[x]==1){
+		
+		if( ifkaye(wor[x]) ){
+			for(;;){
+			if(wor[x]=='ょ'){buk[x]='よ'; break;}
+			if(wor[x]=='ゃ'){buk[x]='や'; break;}
+			if(wor[x]=='ゅ'){buk[x]='ゆ'; break;}
+			/*if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}*/
+			break;}
+		}
+		
 	oou+="<p class='trs'><span class='zel'>"+buk[x]+"</span></p>";
-	oou+="<p class='jj'><span class='zel'>"+wor[x]+"</span></p>";	}
+	oou+="<p class='jj'><span class='zel'>"+wor[x]+"</span></p>";
+	}
 	if(mit[x]==2){
 	oou+="<p class='trs'><span class='blu'>"+buk[x]+"</span></p>";
 	oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>";	}
@@ -221,6 +252,7 @@ for(x=0, y=0;x<999;x++)//dilymo retwennya na frahmenty kanji/kana
 	if(x==0){ if(ret0[x]>"ー"){reti[reed]=1;}else{reti[reed]=0;} }
 	else{
 		if(ret0[x]>"ー"){in0=1;}else{in0=0;}
+		if(ret0[x]=="："){in0=0;}
 		if(reti[reed]!=in0){/*ret[reed]+='/';*/ reti[++reed]=in0; ret[reed]='';}
 		}
 	ret[reed]+=ret0[x];
@@ -232,19 +264,19 @@ if(reti[x]==1)
 {
 	for(y=1;/*y<kss*/;y++)
 	{
-		if(mms[y][0]=='end'){break;}
+		if(mms[y][0]=='end'){ /*$(".lili").append("*");*/ break;}
 		if(ret[x]==mms[y][0][0]){reka[x]=mms[y][1][0]; p=1; break;}
 	}
 	if(p>0){continue;}
 	for(y=1;y<vss;y++)
-	{if(mmv[y][0]=='end'){break;}
+	{if(mmv[y][0]=='end'){ /*$(".lili").append(ret[x]);*/ break;}
 		if(ret[x]==mmv[y][0])
 		{
 			if(mmv[y][1]==0){reka[x]=mmv[y][2]; p=1; break;}
 			if(mmv[y][1]==ret[x+1][0]){reka[x]=mmv[y][2]; p=1; break;}
 		}
 	}
-	if(p==0){reka[x]='----';}
+	if(p==0){/*$(".r1").append("*");*/ reka[x]='----';}
 	
 }
 	
@@ -255,4 +287,34 @@ if(reti[x]==1)
 //atoa1( tokana0() );
 //return out1();
 return atoa1( tokana0() );
+
+}
+
+function kanagif()
+{
+if(KK0==0)
+{
+var onek="";
+var vsi2=vsit(ae);
+//var spsk=['','']; esk=0;
+esk=0;
+for(x=0; vsi2.charCodeAt(x)>0 ;x++)
+{
+//if(vsi2[x]<="ー")continue;
+	for(y=0;;y++){
+	if(y==esk){spsk[esk++]=vsi2[x]; break;}
+	if(spsk[y]==vsi2[x]){ break;} }
+//PERENESENO U FUNKTSIJU Kfs0
+}
+}
+//var kaka="*";
+$(".ts").append("<div class='kanal'>");
+for(x=0;x<esk;x++){
+//kaka=spsk[x];
+$(".ts").append("<img class='kana' src='../kanji-wp/1"+ ( tada(spsk[x]) ) +".gif' name='"+spsk[x]+"'>");
+}
+$(".ts").append("</div>");
+
+
+
 }
