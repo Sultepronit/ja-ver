@@ -156,7 +156,7 @@ var pov0=0;
 	{	vp[wn][np+1]--;	M++; tip--;}
 	}
 	
-	if(tip>kv+spp-5){tip=0;
+	if(tip>kv+spp-6){tip=0;
 	resf();
 	
 	}
