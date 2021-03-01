@@ -35,7 +35,8 @@ kss=36; ksS=29; spp=2; mms=[ [ ['#'], ['#'], ["#"], [0] ],
 [ ['や'], ['や'], ["Я"], [0] ],
 [ ['か'], ['か','が'], ["КА/ҐА"], [0] ],
 
-//http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana=%E3%81%8C
+//assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana=%E3%81%8C
+//assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana=%E3%81%99&kanji=%E5%B7%A3
 
 
 
