@@ -153,10 +153,14 @@ var pov0=0;
 	if(pm>0)
 	{	vp[wn][np+1]++;	P++;}
 	else
-	{	vp[wn][np+1]--;	M++; tip--;}
+	{
+		vp[wn][np+1]--;	M++; tip--;
+		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
 	}
 	
-	if(tip>kv+spp-6){tip=0;
+	}
+	
+	if(tip>kv+spp-6){//tip=0;
 	resf();
 	
 	}
