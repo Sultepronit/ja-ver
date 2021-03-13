@@ -1,4 +1,4 @@
-
+katrans=0;
 
 var main = function()
 {"use strict";

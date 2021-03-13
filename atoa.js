@@ -27,11 +27,11 @@ kan[x]=wor[x];
 		if(a_a[y][0]==wor[x]){buk[x]=a_a[y][1]; break;}
 	}
 	
-	for(y=0;y<=ska;y++)
+	/*for(y=0;y<=ska;y++)
 	{
 		if( (tada(wor[x])) == sps[y]){ski[y]++; break;}
 		if(y==ska){sps[ska++]=tada(wor[x]); ski[y]=1; break;}
-	}
+	}*/
 }
 mit[0]=0;
 for(x=1;;x++)
@@ -127,6 +127,16 @@ for(x=1;;x++)
 		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; mit[x]=1; continue;}
 	}
 	
+	if(buk[x]=='-')
+	{
+		if(buk[x-1]=='Ю'){buk[x]='У'; continue;}
+		if(buk[x-1]=='Я'){buk[x]='А'; continue;}
+		if(buk[x-1]=='А' || buk[x-1]=='І'){buk[x]=buk[x-1]; continue;}
+		if(buk[x-1]=='У' || buk[x-1]=='Е'){buk[x]=buk[x-1]; continue;}
+		if(buk[x-1]=='О'){buk[x]=buk[x-1]; continue;}
+		buk[x]=buk[x-1][1];
+	}
+	
 	if(buk[x-1]=='КУ')
 	{
 		if(buk[x][0]=='С'){buk[x-1]='К'; mit[x-1]=2; continue;}
@@ -134,15 +144,23 @@ for(x=1;;x++)
 		if(buk[x][0]=='Ш'){buk[x-1]='К'; mit[x-1]=2; continue;}
 		if(buk[x][0]=='Т'){buk[x-1]='К'; mit[x-1]=2; continue;}
 	}
+	
 	if(buk[x-1]=='ШІ')
 	{
 		if(buk[x][0]=='Ч'){buk[x-1]='ШЬ'; mit[x-1]=2; continue;}
 		if(buk[x][0]=='Т'){buk[x-1]='ШЬ'; mit[x-1]=2; continue;}
 		if(buk[x][0]=='К'){buk[x-1]='ШЬ'; mit[x-1]=2; continue;}
 	}
+	
 	if(buk[x-1]=='ЦУ')
 	{
 		if(buk[x][0]=='К'){buk[x-1]='Ц'; mit[x-1]=2; continue;}
+	}
+	
+	if(buk[x-1]=='СУ')
+	{
+		if(buk[x][0]=='К'){buk[x-1]='С'; mit[x-1]=2; continue;}
+		if(buk[x][0]=='Т'){buk[x-1]='С'; mit[x-1]=2; continue;}
 	}
 }
 
@@ -169,6 +187,8 @@ function tada(vk1)
 	if(vk1=='ゃ'){re='や'; break;}
 	if(vk1=='ゅ'){re='ゆ'; break;}
 	if(vk1=='こ'){re='ご'; break;}
+	if(vk1=='ほ'){re='ぽ'; break;}
+	if(vk1=='ぼ'){re='ぽ'; break;}
 	re=vk1; break;
 	}
 return re;
@@ -241,7 +261,7 @@ for(x=0;x<reed;x++)
 }
 return r;}
 
-function rere(rrr)
+function rere(rrr, kud=0)
 {ret0 = rrr;
 var in0=0;
 reed=0;
@@ -286,10 +306,10 @@ if(reti[x]==1)
 //wor=kkk;
 //atoa1( tokana0() );
 //return out1();
-return atoa1( tokana0() );
+if(kud==0){ return atoa1( tokana0() ); }else{ return tokana0(); }
 
 }
-
+/*
 function kanagif()
 {
 if(KK0==0)
@@ -318,3 +338,4 @@ $(".ts").append("</div>");
 
 
 }
+*/

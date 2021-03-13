@@ -11,7 +11,7 @@ var bu0=0;
 var kanpys0=0;
 var P=0, M=0;
 var sp0=0;
-var katrans = 0;
+var katrans = 1;
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
@@ -242,7 +242,31 @@ var pov0=0;
 
 var main = function() {
 "use strict";
+$(".orig").replaceWith("");
+var tte='';
+for(var x=1;x<kss;x++)
+{	
+	tte+="<div class='tab'>";
+	tte+="<p class='orig'>"+vsika(x)+"</p>";
+	tte+="<div class='transc'>"+( atoa1( vsit(x) ) )+"</div>";
+	tte+="<div class='transl'>"+mms[x][2]+"</div>";
+	tte+="</div>";
+	//$(".orig").append(x);
+}
+$(".main").append(tte);
 
+for(var x=1;x<kss;x++)
+{	
+	/*$(".main").append("<div class='tab'>");
+	$(".main").append("<p class='orig'>"+vsika(x)+"</p>");
+	/*$(".main").append("<div class='transc'>");
+	$(".main").append( atoa1( vsit(x) ),"</div>" );
+	$(".main").append("<div class='transl'>"+mms[x][2]+"</div>");*/
+	//$(".main").append("</div>");
+	//$(".orig").append(x);
+}
+
+/*
 word();
 
 $("button.bb").on("click", function(event){ word(0); });
@@ -252,6 +276,6 @@ $("button.bsou").on("click", function(event){
 	if(ifa==0){ifa=1; document.getElementById("bs").style.color = "blue"; sou();
 	}else{ifa=0; document.getElementById("bs").style.color = "red"; a.pause(); a.currentTime = 0.0;}
 });
-
+*/
 };
 $(document).ready(main);
