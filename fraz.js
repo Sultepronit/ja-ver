@@ -144,10 +144,13 @@ function resf()
 }
 
 var kann='';
+var or0='', or1='', pr0='', pr1='';
+var ifz=0;
 function word(pm){
 var bubu=0;
 var pov0=0;
 
+	
 	if(bul==0){bul=1; 
 	tim++; tip++;
 	if(tim>1){
@@ -155,13 +158,13 @@ var pov0=0;
 	{	vp[wn][np+1]++;	P++;}
 	else
 	{
-		vp[wn][np+1]--;	M++; tip--;
+		vp[wn][np+1]--;	M++; /*tip--;*/
 		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
 	}
 	
 	}
 	
-	if(tip>kv+spp-5){//tip=0;
+	if( tip > (ksf/2) ){//tip=0;
 	resf();
 	
 	}
@@ -169,72 +172,67 @@ var pov0=0;
 	///////////////
 	for(x=0;x<1000;x++)
 	{
-	wn = vyp( 1,(kss-1) );
-		if(vp[wn][0]>0){
+	wn = vyp( 1,(ksf-1) );
+		/*if(vp[wn][0]>0){
 			if(sp0>=spp){continue;}
 			sp0++;
-		}
+		}*/
 		if(wn==bu0){continue;}
 		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
 		if(bubu){bubu=0; continue;}
-	/*if(vp[wn][3]+vp[wn][4]>2){
-	if(pov0);else{pov0++; continue;}
-	}*/
-	//if(pm<0){tip-=1;}
+	
 	bu[tip]=wn;
 	bu0=wn;
 	break;
 	}
 	
-	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
-	//if(vp[wn][0]>0){np=vyp(0,1);}
-	if(vp[wn][0]>0){np=vyp(0,1);}
+	/*if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
+	if(vp[wn][0]>0){np=vyp(0,1);}*/
+	np=vyp(0,1);
+	//np=0;
 	////////////////
-	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
+	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(ksf/2)+" "+P+"/"+M+"</p>");
 	//if(tim<2){$(".time").append(" "+kss);}
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][0]+"</p>");
-	$(".transc").replaceWith("<p class='transc'> </p>");
-	$(".gif").replaceWith("<div class='gif'> </div>");
-		if(np==0){
-		if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");	}
-		else{ $(".orig").replaceWith("<p class='orig'><span class='bgk'>"+mms[wn][1][0]+"</span></p>");	}
-		$(".transl").replaceWith("<p class='transl'> </p>");
-		if(wn<ksS)
-		{
-		$(".transc").replaceWith("<div class='transc'>");
-		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
-		if(ifa){ sou(); }
-		}
-		//else{kanpys0++; if(pm<0){kanpys0--;} }
-		
-		}
+	
+	or0=''; or1=''; pr0=''; pr1=''; ifz=0;
+	for(x=0;x<55;x++)
+	{
+		if(mmf[wn][x]==';'){break;}
+		if(mmf[wn][x]=='='){ifz=1; continue;}
+		if(ifz==0){
+			if(mmf[wn][x]=='!'){or1+=mmf[wn][++x]+'　'; or0+='？？？'; continue;}
+			or1+=mmf[wn][x]+'　';
+			or0+=mmf[wn][x]+'　';
+			}
 		else{
-		$(".orig").replaceWith("<p class='orig'> </p>");
-		//$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
-			vtr="<div class='transl'>"+mms[wn][2]+"";
-			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
-		$(".transl").replaceWith(vtr);
-		}
-	}else{bul=0;
-	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
-	if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	}
-	else{ $(".orig").replaceWith("<p class='orig'><span class='bgk'>"+vsit(wn)+"</span></p>");	
+			if(mmf[wn][x]=='!'){pr1+=mmf[wn][++x]; pr0+="???"; continue;}
+			pr1+=mmf[wn][x]+' ';
+			pr0+=mmf[wn][x]+' ';
+			}
 	}
 	
+	//$(".transc").replaceWith("<p class='transc'>"+or1+"</p>");
+	//$(".main").append("<p>"+pr1+"</p>");
+	/*$(".main").append("<p class='transc'>"+or0+"</p>");
+	$(".main").append("<p class='transl'>"+pr0+"</p>");*/
 		if(np==0){
-			vtr="<div class='transl'>"+mms[wn][2]+"";
-			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
-		$(".transl").replaceWith(vtr);
-		if(wn>=ksS){
-		var td=tada(mms[wn][1]);
-		if(td!=mms[wn][1]){		$(".bgk").append(td); }
-		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1][0]+".gif'>");
-		}
-		
+		$(".transc").replaceWith("<div class='transc'> </div>" );
+		$(".transc").append( rere( or1 ) );
+		$(".transl").replaceWith("<div class='transl'>"+pr0+"</div>");
 		}
 		else{
-		$(".transc").replaceWith("<div class='transc'>");
-		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
+		$(".transc").replaceWith("<div class='transc'> </div>" );
+		$(".transc").append( rere( or0 ) );
+		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
+		}
+	}else{bul=0;
+		if(np==0){
+		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
+		}
+		else{
+		$(".transc").replaceWith("<div class='transc'> </div>" );
+		$(".transc").append( rere( or1 ) );
 		}
 	if(ifa){ sou(); }
 	}
@@ -243,19 +241,9 @@ var pov0=0;
 var main = function() {
 "use strict";
 $(".orig").replaceWith("");
-var tte='';
-for(var x=1;x<kss;x++)
-{	
-	tte+="<div class='tab'>";
-	tte+="<p class='orig'>"+vsika(x)+"</p>";
-	tte+="<div class='transc'>"+( atoa1( vsit(x) ) )+"</div>";
-	tte+="<div class='transl'>"+mms[x][2]+"</div>";
-	tte+="</div>";
-	//$(".orig").append(x);
-}
-$(".main").append(tte);
 
-/*
+
+
 word();
 
 $("button.bb").on("click", function(event){ word(0); });
@@ -265,6 +253,6 @@ $("button.bsou").on("click", function(event){
 	if(ifa==0){ifa=1; document.getElementById("bs").style.color = "blue"; sou();
 	}else{ifa=0; document.getElementById("bs").style.color = "red"; a.pause(); a.currentTime = 0.0;}
 });
-*/
+
 };
 $(document).ready(main);
