@@ -152,6 +152,9 @@ var pov0=0;
 
 	
 	if(bul==0){bul=1; 
+	document.getElementById("bp").style.removeProperty("background-color");
+	document.getElementById("bp").style.width ="96%";
+	document.getElementById("bm").style.display = "none";
 	tim++; tip++;
 	if(tim>1){
 	if(pm>0)
@@ -227,6 +230,10 @@ var pov0=0;
 		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
 		}
 	}else{bul=0;
+	document.getElementById("bp").style.backgroundColor ="green";
+	document.getElementById("bp").style.width ="46%";
+	document.getElementById("bm").style.display = "";
+	
 		if(np==0){
 		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
 		}

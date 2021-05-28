@@ -149,6 +149,9 @@ var bubu=0;
 var pov0=0;
 
 	if(bul==0){bul=1; 
+	document.getElementById("bp").style.removeProperty("background-color");
+	document.getElementById("bp").style.width ="96%";
+	document.getElementById("bm").style.display = "none";
 	tim++; tip++;
 	if(tim>1){
 	if(pm>0)
@@ -216,6 +219,10 @@ var pov0=0;
 		$(".transl").replaceWith(vtr);
 		}
 	}else{bul=0;
+	document.getElementById("bp").style.backgroundColor ="green";
+	document.getElementById("bp").style.width ="46%";
+	document.getElementById("bm").style.display = "";
+	
 	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
 	if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	}
 	else{ $(".orig").replaceWith("<p class='orig'><span class='bgk'>"+vsit(wn)+"</span></p>");	
