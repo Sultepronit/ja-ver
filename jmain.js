@@ -111,6 +111,7 @@ function sou0(k)
 {var a = new Audio();
 a.src="sound/"+allau[k]+'.mp3';
 a.play();
+a.onended = function(){ if(k<eau){sou0(++k);} }
 a.onerror = function(){
 var kan00=vypka(1);
 a.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+allau[k]+'&kanji='+kan00;
@@ -159,12 +160,12 @@ var pov0=0;
 	else
 	{
 		vp[wn][np+1]--;	M++; tip--;
-		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
+		if(vp[wn][1]+vp[wn][2]<-1){tip++;}
 	}
 	
 	}
 	
-	if(tip>kv+spp-5){//tip=0;
+	if(tip>kv+spp-6){//tip=0;
 	resf();
 	
 	}
@@ -190,7 +191,7 @@ var pov0=0;
 	}
 	
 	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
-	//if(vp[wn][0]>0){np=vyp(0,1);}
+	if( (vp[wn][4]+1)<vp[wn][3] ){np=1;}
 	if(vp[wn][0]>0){np=vyp(0,1);}
 	////////////////
 	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
