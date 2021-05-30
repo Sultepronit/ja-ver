@@ -189,9 +189,9 @@ var pov0=0;
 	break;
 	}
 	
-	/*if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
-	if(vp[wn][0]>0){np=vyp(0,1);}*/
-	np=vyp(0,1);
+	if(vpf[wn][1]>0){np=vyp(0,1);}else{np=0;}
+	if( (vpf[wn][2]+1)<vpf[wn][1] ){np=1;}
+	//np=vyp(0,1);
 	//np=0;
 	////////////////
 	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(ksf/2)+" "+P+"/"+M+"</p>");
@@ -204,7 +204,7 @@ var pov0=0;
 		if(mmf[wn][x]==';'){break;}
 		if(mmf[wn][x]=='='){ifz=1; continue;}
 		if(ifz==0){
-			if(mmf[wn][x]=='!'){or1+=mmf[wn][++x]+'　'; or0+='？？？'; continue;}
+			if(mmf[wn][x]=='!'){or1+=mmf[wn][++x]+'　'; or0+='？？？　'; continue;}
 			or1+=mmf[wn][x]+'　';
 			or0+=mmf[wn][x]+'　';
 			}
