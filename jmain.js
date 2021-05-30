@@ -161,11 +161,13 @@ var pov0=0;
 	{
 		vp[wn][np+1]--;	M++; tip--;
 		if(vp[wn][1]+vp[wn][2]<-1){tip++;}
+		if(vp[wn][0]>0){tip++;}
 	}
 	
 	}
 	
 	if(tip>kv+spp-6){//tip=0;
+	a.pause();
 	resf();
 	
 	}

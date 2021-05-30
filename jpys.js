@@ -170,7 +170,8 @@ var pov0=0;
 	else
 	{
 		vp[wn][np+1]--;	M++; tip--;
-		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
+		if(vp[wn][1]+vp[wn][2]<-1){tip++;}
+		if(vp[wn][0]>0){tip++;}
 	}
 	
 	}
