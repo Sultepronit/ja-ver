@@ -4,9 +4,10 @@ var bb0 = 0;
 var wn = 0;
 var tim = 0;
 var bul = 0;
-var ifa = 0;
+var ifa = 1;
 var np = 0;
 var a = new Audio();
+var ax = new Audio();
 var bu = [0,0,0];
 var tip = 0;
 var ki0 = 0;
@@ -337,7 +338,7 @@ function rea(ar)
 		
 		if(bb0){ $(".info0").replaceWith("<p class='info0'>Не здавайся &#128521;</p>"); bb0--;}
 		else{ $(".info0").replaceWith("<p class='info0'>Спробуй ще &#128521;</p>"); bb0++;}
-		if(ifa){ a.src="sound/tin.mp3";	a.play(); }
+		if(ifa){ ax.src="sound/tin.mp3";	ax.play(); }
 		
 		if(ar==0){ document.getElementById("a").textContent="X"; }
 		if(ar==1){ document.getElementById("b").textContent="X"; }
