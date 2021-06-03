@@ -1,44 +1,102 @@
-var canvas = document.getElementById('paint');
-var ctx = canvas.getContext('2d');
- 
-var sketch = document.getElementById('sketch');
-var sketch_style = getComputedStyle(sketch);
-canvas.width = 500;
-canvas.height = 250;
-
-var mouse = {x: 0, y: 0};
- 
-/* Mouse Capturing Work */
-canvas.addEventListener('mousemove', function(e) {
-  mouse.x = e.pageX - this.offsetLeft;
-  mouse.y = e.pageY - this.offsetTop;
-}, false);
-
-/* Drawing on Paint App */
-ctx.lineJoin = 'round';
-ctx.lineCap = 'round';
-
-ctx.strokeStyle = "red";
-function getColor(colour){ctx.strokeStyle = colour;}
-
-function getSize(size){ctx.lineWidth = size;}
-
-
-//ctx.strokeStyle = 
-//ctx.strokeStyle = document.settings.colour[1].value;
- 
-canvas.addEventListener('mousedown', function(e) {
-    ctx.beginPath();
-    ctx.moveTo(mouse.x, mouse.y);
- 
-    canvas.addEventListener('mousemove', onPaint, false);
-}, false);
- 
-canvas.addEventListener('mouseup', function() {
-    canvas.removeEventListener('mousemove', onPaint, false);
-}, false);
- 
-var onPaint = function() {
-    ctx.lineTo(mouse.x, mouse.y);
-    ctx.stroke();
+// =============
+// == Globals ==
+// =============
+const canvas = document.getElementById('drawing-area');
+const canvasContext = canvas.getContext('2d');
+const clearButton = document.getElementById('clear-button');
+const state = {
+  mousedown: false
 };
+
+// ===================
+// == Configuration ==
+// ===================
+const lineWidth = 20;
+const halfLineWidth = lineWidth / 2;
+const fillStyle = '#333';
+const strokeStyle = '#333';
+const shadowColor = '#333';
+const shadowBlur = lineWidth / 4;
+
+// =====================
+// == Event Listeners ==
+// =====================
+canvas.addEventListener('mousedown', handleWritingStart);
+canvas.addEventListener('mousemove', handleWritingInProgress);
+canvas.addEventListener('mouseup', handleDrawingEnd);
+canvas.addEventListener('mouseout', handleDrawingEnd);
+
+canvas.addEventListener('touchstart', handleWritingStart);
+canvas.addEventListener('touchmove', handleWritingInProgress);
+canvas.addEventListener('touchend', handleDrawingEnd);
+
+clearButton.addEventListener('click', handleClearButtonClick);
+
+// ====================
+// == Event Handlers ==
+// ====================
+function handleWritingStart(event) {
+  event.preventDefault();
+
+  const mousePos = getMosuePositionOnCanvas(event);
+  
+  canvasContext.beginPath();
+
+  canvasContext.moveTo(mousePos.x, mousePos.y);
+
+  canvasContext.lineWidth = lineWidth;
+  canvasContext.strokeStyle = strokeStyle;
+  canvasContext.shadowColor = null;
+  canvasContext.shadowBlur = null;
+
+  canvasContext.fill();
+  
+  state.mousedown = true;
+}
+
+function handleWritingInProgress(event) {
+  event.preventDefault();
+  
+  if (state.mousedown) {
+    const mousePos = getMosuePositionOnCanvas(event);
+
+    canvasContext.lineTo(mousePos.x, mousePos.y);
+    canvasContext.stroke();
+  }
+}
+
+function handleDrawingEnd(event) {
+  event.preventDefault();
+  
+  if (state.mousedown) {
+    canvasContext.shadowColor = shadowColor;
+    canvasContext.shadowBlur = shadowBlur;
+
+    canvasContext.stroke();
+  }
+  
+  state.mousedown = false;
+}
+
+function handleClearButtonClick(event) {
+  event.preventDefault();
+  
+  clearCanvas();
+}
+
+// ======================
+// == Helper Functions ==
+// ======================
+function getMosuePositionOnCanvas(event) {
+  const clientX = event.clientX || event.touches[0].clientX;
+  const clientY = event.clientY || event.touches[0].clientY;
+  const { offsetLeft, offsetTop } = event.target;
+  const canvasX = clientX - offsetLeft;
+  const canvasY = clientY - offsetTop;
+
+  return { x: canvasX, y: canvasY };
+}
+
+function clearCanvas() {
+  canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+}
