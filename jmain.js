@@ -176,6 +176,7 @@ var pov0=0;
 	for(x=0;x<1000;x++)
 	{
 	wn = vyp( 1,(kss-1) );
+		if(vp[wn][0]>mxp){continue;}
 		if(vp[wn][0]>0){
 			if(sp0>=spp){continue;}
 			sp0++;
