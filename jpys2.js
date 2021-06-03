@@ -330,6 +330,7 @@ var pov0=0;
 		
 		}
 		else{if(ifa){ souk(0); }
+		clearCanvas();
 		document.getElementById("container").style.display = "";
 		$(".orig").replaceWith("<p class='orig'> </p>");
 		vtr="<div class='transl'>"+mm[wn][1]+"</div>";
@@ -343,6 +344,7 @@ var pov0=0;
 	
 	
 		if(np==0){
+		clearCanvas();
 		document.getElementById("container").style.display = "";
 		vtr="<div class='transl'>"+mm[wn][1]+"</div>";
 		$(".transl").replaceWith(vtr);
