@@ -107,7 +107,7 @@ function clearCanvas() {
 var wn = 0;
 var tim = 0;
 var bul = 0;
-var ifa = 0;
+var ifa = 1;
 var np = 0;
 var a = new Audio();
 var bu = [0,0,0];
@@ -386,7 +386,7 @@ $("button.bb").on("click", function(event){ word(0); });
 $("button.bm").on("click", function(event){ word(-1); });
 $("button.bp").on("click", function(event){ word(1); });
 $("button.bsou").on("click", function(event){
-	if(ifa==0){ifa=1; document.getElementById("bs").style.color = "blue"; /*souk();*/
+	if(ifa==0){ifa=1; document.getElementById("bs").style.color = "blue"; souk();
 	}else{ifa=0; document.getElementById("bs").style.color = "red"; a.pause(); a.currentTime = 0.0;}
 });
 
