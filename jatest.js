@@ -177,7 +177,7 @@ return re;
 function test()
 {
 
-	if(tip==4){ resf(); }
+	if(tip==10){ resf(); }
 	else
 	{
 	document.getElementById("time").textContent=tip+1;
