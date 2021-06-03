@@ -166,7 +166,7 @@ var pov0=0;
 	
 	}
 	
-	if(tip>kv+spp-3){//tip=0;
+	if(tip>kv+spp-2){//tip=0;
 	a.pause();
 	resf();
 	
