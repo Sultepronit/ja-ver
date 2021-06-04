@@ -285,7 +285,7 @@ var pov0=0;
 	
 	}
 	
-	if(tip>kkv+Kpv-2){//tip=0;
+	if(tip>kkv+Kpv-1){//tip=0;
 	a.pause();
 	resf();
 	}
