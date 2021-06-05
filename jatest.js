@@ -124,14 +124,26 @@ a.onended = function(){ if(k<eau){sou0(++k);} }
 }
 }
 
-var a = new Audio();
-function sout(vo)
+var ab = new Audio();
+function sout(vo=0)
+{
+if(vo==0)
 {
 a.src="sound/"+tp[wn][0]+'.mp3';
 a.play();
 a.onerror = function(){
 a.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+tp[wn][0]+'&kanji='+tp[wn][2];
 a.play();
+}
+}
+else
+{
+ab.src="sound/"+tp[wn][0]+'.mp3';
+ab.play();
+ab.onerror = function(){
+ab.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+tp[wn][0]+'&kanji='+tp[wn][2];
+ab.play();
+}
 }
 //a.onended = function(){ test(); }
 }
@@ -142,7 +154,8 @@ function resf()
 	for(x=1;x<kss;x++)
 	{
 		if( (vp[x][1]) || (vp[x][2]) ){
-		res+="<span class='res'> ["+x+","+vp[x][1]+","+vp[x][2]+"], </span>";
+		res+="<span class='res'> ["+tp[x][0]+" "+vp[x][1]+" "+vp[x][2]+"], </span>";
+		//res+="<span class='res'> ["+x+","+vp[x][1]+","+vp[x][2]+"], </span>";
 		}
 	}
 	res+="<p class='resx'>ОМЕДЕТОО&#128516! — Вітаю!</p>";
@@ -174,34 +187,41 @@ var re=0;
 return re;
 }
 
+var kann='';
+
+
 function test()
 {
 
 	if(tip==10){ resf(); }
 	else
 	{
+	if(vp[wn][2]<-1){tip--; vp[wn][1]=-9; vp[wn][2]=0;}
 	document.getElementById("time").textContent=tip+1;
 	var bubu=0;
 	for(x=0;x<1000;x++)
 	{
 	wn = vyp( 1,(te1-1) );
 		
-		//if(wn==bu0){continue;}
+		if(wn==bu0){continue;}
 		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; break;}	}
 		if(bubu){bubu=0; continue;}
 	bu[tip++]=wn;
-	//bu0=wn;
+	bu0=wn;
 	break;
 	}
-	document.getElementById("tex").textContent=tp[wn][0];
+	np=vyp(0,1);
+	if(np){	document.getElementById("tex").textContent=tp[wn][0]; }
+	else{ document.getElementById("tex").textContent=tp[wn][1]; sout(1); }
 	pv = vyp( 0,5 );
 	var vsv = ['','',''];
 	for(x=0;x<6;x++)
 	{
-		if(x==pv){vsv[x]=tp[wn][1]; continue;}
-		vsv[x]="#";
-		vsv[x]=tp[ xv(x) ][1];
-		//vsv[x]=xv(x); 
+		if(x==pv){
+			if(np){ vsv[x]=tp[wn][1]; }else{ vsv[x]=tp[wn][0]; }
+			continue;
+		}
+		if(np){ vsv[x]=tp[ xv(x) ][1]; }else{ vsv[x]=tp[ xv(x) ][0]; }
 	}
 	document.getElementById("a").textContent=vsv[0];
 	document.getElementById("b").textContent=vsv[1];
@@ -211,113 +231,6 @@ function test()
 	document.getElementById("f").textContent=vsv[5];
 	}
 
-}
-
-var kann='';
-function word(pm){
-var bubu=0;
-var pov0=0;
-
-	if(bul==0){bul=1; 
-	document.getElementById("bp").style.removeProperty("background-color");
-	document.getElementById("bp").style.width ="96%";
-	document.getElementById("bm").style.display = "none";
-	tim++; tip++;
-	if(tim>1){
-	if(pm>0)
-	{	vp[wn][np+1]++;	P++;}
-	else
-	{
-		vp[wn][np+1]--;	M++; tip--;
-		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
-		if(vp[wn][0]>0){tip++;}
-	}
-	
-	}
-	
-	if(tip>kv+spp-2){//tip=0;
-	a.pause();
-	resf();
-	
-	}
-	
-	///////////////
-	for(x=0;x<1000;x++)
-	{
-	wn = vyp( 1,(kss-1) );
-		if(vp[wn][0]>mxp){continue;}
-		if(vp[wn][0]>0){
-			if(sp0>=spp){continue;}
-			sp0++;
-		}
-		if(wn==bu0){continue;}
-		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; ki0++; break;}	}
-		if(bubu){bubu=0; continue;}
-	/*if(vp[wn][3]+vp[wn][4]>2){
-	if(pov0);else{pov0++; continue;}
-	}*/
-	//if(pm<0){tip-=1;}
-	bu[tip]=wn;
-	bu0=wn;
-	break;
-	}
-	
-	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
-	if( (vp[wn][4]+1)<vp[wn][3] ){np=1;}
-	//if(vp[wn][0]>0){np=vyp(0,1);}
-	////////////////
-	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
-	//if(tim<2){$(".time").append(" "+kss);}
-	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][0]+"</p>");
-	$(".transc").replaceWith("<p class='transc'> </p>");
-	$(".gif").replaceWith("<div class='gif'> </div>");
-		if(np==0){
-		if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");	}
-		else{ $(".orig").replaceWith("<p class='orig'><span class='bgk'>"+mms[wn][1][0]+"</span></p>");	}
-		$(".transl").replaceWith("<p class='transl'> </p>");
-		if(wn<ksS)
-		{
-		$(".transc").replaceWith("<div class='transc'>");
-		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
-		if(ifa){ sou(); }
-		}
-		//else{kanpys0++; if(pm<0){kanpys0--;} }
-		
-		}
-		else{
-		$(".orig").replaceWith("<p class='orig'> </p>");
-		//$(".transl").replaceWith("<p class='transl'>"+mms[wn][2]+"</p>");
-			vtr="<div class='transl'>"+mms[wn][2]+"";
-			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
-		$(".transl").replaceWith(vtr);
-		}
-	}else{bul=0;
-	document.getElementById("bp").style.backgroundColor ="green";
-	document.getElementById("bp").style.width ="46%";
-	document.getElementById("bm").style.display = "";
-	
-	//$(".transc").replaceWith("<p class='transc'>"+vsit(wn)+"</p>");
-	if(wn<ksS){	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	}
-	else{ $(".orig").replaceWith("<p class='orig'><span class='bgk'>"+vsit(wn)+"</span></p>");	
-	}
-	
-		if(np==0){
-			vtr="<div class='transl'>"+mms[wn][2]+"";
-			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
-		$(".transl").replaceWith(vtr);
-		if(wn>=ksS){
-		var td=tada(mms[wn][1]);
-		if(td!=mms[wn][1]){		$(".bgk").append(td); }
-		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1][0]+".gif'>");
-		}
-		
-		}
-		else{
-		$(".transc").replaceWith("<div class='transc'>");
-		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
-		}
-	if(ifa){ sou(); }
-	}
 }
 
 function rea(ar)
