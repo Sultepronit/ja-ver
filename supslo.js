@@ -58,9 +58,9 @@ function shows()
 			vtr="<div class='transl'>"+mms[wn][2]+"";
 			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
 		$(".transl").replaceWith(vtr);
-		var td=tada(mms[wn][1]);
+		/*var td=tada(mms[wn][1]);
 		if(td!=mms[wn][1]){		$(".bgk").append(td); }
-		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1][0]+".gif'>");
+		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1][0]+".gif'>");*/
 		
 		}
 		else{
