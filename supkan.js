@@ -53,16 +53,23 @@ function showk()
 		$(".kanje").replaceWith("<p class='kanje'>"+mm[wn][0]+"</p>");
 		}
 		
-		if(mm[wn][3]!='-'){
+		/*if(mm[wn][3]!='-'){
 		$(".kanje").append( tada(mm[wn][0]) )
 		$(".kanaz").replaceWith("<div class='kanaz'>"+mm[wn][3]+"</div>");
-		}
-		$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][0][0]+".gif'>");
+		}*/
+		//$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][0][0]+".gif'>");
 		if(mm[wn][3]!='-'){
+		$(".kanaz").replaceWith("<div class='kanaz'>"+mm[wn][3]+"</div>");
+		$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][2]+".gif'>");
+		$(".kanje").append( "/"+tada(mm[wn][0]) )
 		vtr="<video autoplay muted loop>";
 		vtr+='<source src="kanji-wp/'+mm[wn][2]+'.mp4" type="video/mp4">';
 		vtr+="</video>";
 		$(".kanje").append( vtr );
+		//document.getElementById("kanz").style.width = "50%";
+		}
+		else{
+			$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][0][0]+".gif'>");
 		}
 	
 	if(ifa){ souk(); }

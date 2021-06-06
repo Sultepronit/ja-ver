@@ -176,6 +176,7 @@ var re=0;
 	{
 	re = vyp( 1,(te2-1) );
 		
+		if(tp[re][4]>0){continue;}
 		for(y=0;y<tip;y++){	if(re==bu[y]){bubu=1; break;}	}
 		if(bubu){bubu=0; continue;}
 		for(y=0;y<ke;y++){	if(re==bu5[y]){bubu=1; break;}	}
@@ -193,7 +194,7 @@ var kann='';
 function test()
 {
 
-	if(tip==10){ resf(); }
+	if(tip==15){ resf(); }
 	else
 	{
 	if(vp[wn][2]<-1){tip--; vp[wn][1]=-9; vp[wn][2]=0;}
@@ -203,6 +204,7 @@ function test()
 	{
 	wn = vyp( 1,(te1-1) );
 		
+		if(tp[wn][4]>0){continue;}
 		if(wn==bu0){continue;}
 		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; break;}	}
 		if(bubu){bubu=0; continue;}

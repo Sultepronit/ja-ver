@@ -22,16 +22,19 @@ ifks=vyp( 0,(ppk+pps) );
 if(ifks<ppk){ifks=0;}
 else{ifks=1;}
 
-var iend=0;
+/*var iend=0;
 for(x=0;x<1000;x++)
 {
-	/*if(ifks==0){ if(ktip==ppk){ifks=1;}else{break;} }
-	if(ifks==1){ if(tip==pps{ifks=0; continue;}else{break;} }*/
 	if(ktip==ppk){ifks=1; iend++;}
 	if(tip==pps){ifks=0; iend++;}
 	if(iend==2){resf();}
 	break;
-}
+}*/
+
+var altks=-1;
+	if(ktip<ppk){altks=0;}else{ if(ifks==0){ifks=-1;} }
+	if(tip<pps) {altks=1;}else{ if(ifks==1){ifks=-1;} }
+if(altks==-1){resf();}else{ if(ifks<0){ifks=altks;} }
 
 $(".time").replaceWith("<p class='time'>"+(tim+1)+"/"+(tip+ktip+1)+"/"+(ppk+pps)+" "+P+"/"+M+"</p>");
 
@@ -103,8 +106,8 @@ document.getElementById("ston").style.display = "none";
 
 ppk = kkv+Kpv-1;
 pps = kv+spp-1;
-/*ppk=9;
-pps=9;*/
+//ppk=9;
+//pps=2;
 kps = (spp)/pps;//koefitsijent povtorennqa sliv: zaboronqaje twaste povtorennqa slodisp()
 reg();
 
