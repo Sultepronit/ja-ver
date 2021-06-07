@@ -199,7 +199,7 @@ function ifkaye(vk0)
 {var re=0;
 	for(y=1;y<ks;y++)
 	{
-		if( (tada(vk0))==mm[y][0] ){ if(vpk[y][0]>0){re=1;} break;}
+		if( (tada(vk0))==tada(mm[y][0]) ){ if(vpk[y][0]>0){re=1;} break;}
 	}
 return re;
 }
