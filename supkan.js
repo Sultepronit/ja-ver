@@ -1,4 +1,4 @@
-
+var tede=0;
 function kandisp(){
 	
 	document.getElementById("sh").style.display = "";
@@ -26,17 +26,19 @@ function kandisp(){
 	
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vpk[wn][0]+"</p>");
 	//$(".num").replaceWith("<p class='num'>kan!</p>");
-
+		if(mm[wn][3]!='-'){tede=vyp(0,1);}
 		if(np==0){
 		document.getElementById("container").style.display = "none";
-		$(".kanje").replaceWith("<p class='kanje'>"+mm[wn][0]+"</p>");
+		if(tede){ $(".kanje").replaceWith("<p class='kanje'>"+mm[wn][2]+"</p>"); }
+		else{	$(".kanje").replaceWith("<p class='kanje'>"+mm[wn][0]+"</p>"); }
 		$(".kanaz").replaceWith("<p class='kanaz'> </p>");
 		}
 		else{if(ifa){ souk(0); }
 		clearCanvas();
 		document.getElementById("container").style.display = "";
 		$(".kanje").replaceWith("<p class='kanje'> </p>");
-		vtr="<div class='kanaz'>"+mm[wn][1]+"</div>";
+		if(tede){ vtr="<div class='kanaz'>"+mm[wn][3]+"</div>"; }
+		else{ vtr="<div class='kanaz'>"+mm[wn][1]+"</div>"; }
 		$(".kanaz").replaceWith(vtr);
 		}
 }
@@ -46,11 +48,13 @@ function showk()
 	if(np==0){
 		clearCanvas();
 		document.getElementById("container").style.display = "";
-		vtr="<div class='kanaz'>"+mm[wn][1]+"</div>";
+		if(tede){ vtr="<div class='kanaz'>"+mm[wn][3]+"</div>"; }
+		else { vtr="<div class='kanaz'>"+mm[wn][1]+"</div>"; }
 		$(".kanaz").replaceWith(vtr);
 		}
 		else{
-		$(".kanje").replaceWith("<p class='kanje'>"+mm[wn][0]+"</p>");
+		if(tede){ $(".kanje").replaceWith("<p class='kanje'>"+mm[wn][2]+"</p>"); }
+		else{ $(".kanje").replaceWith("<p class='kanje'>"+mm[wn][0]+"</p>"); }
 		}
 		
 		/*if(mm[wn][3]!='-'){
@@ -58,7 +62,7 @@ function showk()
 		$(".kanaz").replaceWith("<div class='kanaz'>"+mm[wn][3]+"</div>");
 		}*/
 		//$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][0][0]+".gif'>");
-		if(mm[wn][3]!='-'){
+		/*if(mm[wn][3]!='-'){
 		$(".kanaz").replaceWith("<div class='kanaz'>"+mm[wn][3]+"</div>");
 		$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][2]+".gif'>");
 		$(".kanje").append( "/"+tada(mm[wn][0]) )
@@ -66,17 +70,21 @@ function showk()
 		vtr+='<source src="kanji-wp/'+mm[wn][2]+'.mp4" type="video/mp4">';
 		vtr+="</video>";
 		$(".kanje").append( vtr );
-		//document.getElementById("kanz").style.width = "50%";
+		}*/
+		if(tede){
+			vtr="<video autoplay muted loop>";
+			vtr+='<source src="kanji-wp/'+mm[wn][2]+'.mp4" type="video/mp4">';
+			vtr+="</video>";
+			$(".kanje").append( vtr );
 		}
 		else{
 			$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][0][0]+".gif'>");
 		}
-	
 	if(ifa){ souk(); }
 }
 
 function rpmk(amp)
-{
+{tede=0;
 	if(amp>0)
 	{	vpk[wn][np+1]++;	P++;}
 	else
@@ -91,9 +99,10 @@ var allau=['',''], eau=0;
 
 function allaufk()
 {eau=0;
-allau[eau]=mm[wn][0];
-if(mm[wn][2]!='-'){eau=1;
-allau[eau]=mm[wn][2][0];}
+if(tede){ allau[eau]=mm[wn][2][0]; }
+else{ allau[eau]=mm[wn][0]; }
+/*if(mm[wn][2]!='-'){eau=1;
+allau[eau]=mm[wn][2][0];}*/
 }
 
 //var a = new Audio();

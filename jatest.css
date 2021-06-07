@@ -16,12 +16,32 @@ body {
 }
 
 .time {
-	width: 50%;
+	width: 41%;
 	float: left;
 }
 
 .num {
 	float: right;
+}
+
+/*.bsou {
+	font-size: inherit;
+	color: blue;
+}*/
+
+
+.sbu button {
+	font-size: 0.8em;
+	padding: 8px;
+	padding-bottom: 0px;
+}
+
+.stof {
+	margin-left: 30px;
+}
+
+.ston {
+	margin-left: 55px;
 }
 
 .info {
@@ -76,10 +96,6 @@ body {
 	margin: 2%;
 }
 
-.bsou {
-	font-size: inherit;
-	color: blue;
-}
 
 
 

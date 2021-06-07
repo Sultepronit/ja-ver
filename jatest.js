@@ -162,8 +162,7 @@ function resf()
 	res+="<p class='resx'>Тобі — чомк&#128536, мені — скрін!</p>";
 	res+="<p style='font-size:4em'>"+P+"/"+M+"</p>";
 	var a2 = new Audio();
-	a2.src="sound/omedetou.mp3";
-	a2.play();
+	if(ifa){ a2.src="sound/omedetou.mp3"; a2.play(); }
 	$(".main").replaceWith(res);
 }
 
@@ -214,7 +213,7 @@ function test()
 	}
 	np=vyp(0,1);
 	if(np){	document.getElementById("tex").textContent=tp[wn][0]; }
-	else{ document.getElementById("tex").textContent=tp[wn][1]; sout(1); }
+	else{ document.getElementById("tex").textContent=tp[wn][1]; if(ifa){sout(1);} }
 	pv = vyp( 0,5 );
 	var vsv = ['','',''];
 	for(x=0;x<6;x++)
@@ -274,6 +273,8 @@ function rea(ar)
 var main = function() {
 "use strict";
 
+document.getElementById("ston").style.display = "none";
+
 test();
 
 $("button.a").on("click", function(event){ rea(0); });
@@ -287,10 +288,20 @@ $("button.f").on("click", function(event){ rea(5); });
 $("button.bb").on("click", function(event){ word(0); });
 $("button.bm").on("click", function(event){ word(-1); });
 $("button.bp").on("click", function(event){ word(1); });*/
-
+/*
 $("button.bsou").on("click", function(event){
 	if(ifa==0){ifa=1; document.getElementById("bs").style.color = "blue"; //sout();
 	}else{ifa=0; document.getElementById("bs").style.color = "red"; a.pause(); a.currentTime = 0.0;}
+});*/
+
+$("button.spl").on( "click", function(event){ sout(1); } );
+$("button.stof").on("click", function(event){ ifa=0; a.pause(); a.currentTime = 0.0;
+	document.getElementById("ston").style.display = "";
+	document.getElementById("sbn").style.display = "none";
+});
+$("button.ston").on("click", function(event){ ifa=1; sout(1);
+	document.getElementById("ston").style.display = "none";
+	document.getElementById("sbn").style.display = "";
 });
 
 };
