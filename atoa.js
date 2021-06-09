@@ -189,6 +189,13 @@ function tada(vk1)
 	if(vk1=='こ'){re='ご'; break;}
 	if(vk1=='ほ'){re='ぽ'; break;}
 	if(vk1=='ぼ'){re='ぽ'; break;}
+	if(vk1=='け'){re='げ'; break;}
+	if(vk1=='そ'){re='ぞ'; break;}
+	
+	if(vk1=='ぼ'){re='ぽ'; break;}
+	if(vk1=='ぼ'){re='ぽ'; break;}
+	if(vk1=='ぼ'){re='ぽ'; break;}
+	if(vk1=='ぼ'){re='ぽ'; break;}
 	re=vk1; break;
 	}
 return re;
