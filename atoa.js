@@ -205,7 +205,22 @@ return re;
 }
 
 function out1()
+{var za=0, prot=0;
+var kataa=0;
+if(katrans==1)//zamina na pusti mistqsa u vidpovidnyx slovax
 {
+za=0; prot=0;
+	for(x=0;x<aed;x++)
+	{
+		if(mit[x]==0)
+		{
+			if( ifkaye(wor[x]) ){za++;}else{prot++;}
+		}
+		else{prot++;}
+	}
+//if( za>prot ){kataa=1;}else{kataa=0;}
+if( za/aed>=0.5 ){kataa=1;}else{kataa=0;}
+}
 var oou = "<div class='js'>";
 for(x=0;x<aed;x++)
 {
@@ -219,6 +234,7 @@ for(x=0;x<aed;x++)
 	
 	if( ifkaye(wor[x]) ){
 		if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}
+		if(kataa){buk[x]=' ';}
 		}
 			
 	oou+="<p class='trs'>"+buk[x]+"</p>";

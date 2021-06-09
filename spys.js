@@ -244,7 +244,7 @@ var main = function() {
 "use strict";
 $(".orig").replaceWith("");
 var tte='';
-for(var x=1;x<ksS;x++)
+for(var x=1;x<kss;x++)
 {	
 	tte+="<div class='tab'>";
 	tte+="<p class='orig'>"+vsika(x)+"</p>";
