@@ -19,7 +19,7 @@ function kandisp(){
 	}
 	
 	if(vpk[wn][3]>0){np=vyp(0,1);}else{np=0;}
-	if( (vpk[wn][4]+1)<vpk[wn][3] ){np=1;}
+	//if( (vpk[wn][4]+1)<vpk[wn][3] ){np=1;}
 	//if(vpk[wn][0]>0){np=vyp(0,1);}
 	////////////////
 	//$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kkv+Kpv-1)+" "+P+"/"+M+"</p>");
