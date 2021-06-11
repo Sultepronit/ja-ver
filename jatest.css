@@ -44,6 +44,12 @@ body {
 	margin-left: 55px;
 }
 
+.back {
+	font-size: 2em;
+	margin-top: 100px;
+	float: right;
+}
+
 .info {
 	float: left;
 	font-size: 1.2em;
