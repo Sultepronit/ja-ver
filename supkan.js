@@ -72,10 +72,11 @@ function showk()
 		$(".kanje").append( vtr );
 		}*/
 		if(tede){
-			vtr="<video autoplay muted loop>";
+			$(".kanje").append("<img class='k3' src='kanji-wp/"+mm[wn][2]+".gif'>");
+			/*vtr="<video autoplay muted loop>";
 			vtr+='<source src="kanji-wp/'+mm[wn][2]+'.mp4" type="video/mp4">';
 			vtr+="</video>";
-			$(".kanje").append( vtr );
+			$(".kanje").append( vtr );*/
 		}
 		else{
 			$(".kanje").append("<img class='k2' src='kanji-wp/1"+mm[wn][0][0]+".gif'>");
