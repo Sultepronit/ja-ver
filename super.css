@@ -58,6 +58,12 @@ body {
 	margin-left: 55px;
 }
 
+.back {
+	font-size: 2em;
+	margin-top: 100px;
+	float: right;
+}
+
 /*slova---------------------------*/
 .orig {
 	clear: both;
