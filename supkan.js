@@ -26,7 +26,7 @@ function kandisp(){
 	
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vpk[wn][0]+"</p>");
 	//$(".num").replaceWith("<p class='num'>kan!</p>");
-		if(mm[wn][3]!='-'){tede=vyp(0,1);}
+		if(mm[wn][3]!='-'){tede=0;/*vyp(0,1);*/}
 		if(np==0){
 		document.getElementById("container").style.display = "none";
 		if(tede){ $(".kanje").replaceWith("<p class='kanje'>"+mm[wn][2]+"</p>"); }
