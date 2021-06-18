@@ -145,7 +145,24 @@ ab.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='
 ab.play();
 }
 }
-//a.onended = function(){ test(); }
+/*a.onended = function(){ 
+let utterance = new SpeechSynthesisUtterance("千三百六十二");
+utterance.lang = "ja";
+speechSynthesis.speak(utterance);
+}
+ab.onended = function(){ 
+//let utterance = new SpeechSynthesisUtterance("千三百六十二");
+let utterance = new SpeechSynthesisUtterance(tp[wn][0]);
+utterance.lang = "ja";
+speechSynthesis.speak(utterance);
+}*/
+ab.onended = function(){ 
+let utterance = new SpeechSynthesisUtterance("Привіт, світ! Говори нормально!");
+//let utterance = new SpeechSynthesisUtterance(tp[wn][0]);
+utterance.lang = "ua";
+speechSynthesis.speak(utterance);
+}
+
 }
 
 function resf()
