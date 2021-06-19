@@ -12,6 +12,7 @@ var ktip = 0;
 var ifks = 0;
 var ppk=0, pps=0;
 var kps = 0;
+var kpk=0;
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
@@ -104,11 +105,12 @@ var main = function() {
 
 document.getElementById("ston").style.display = "none";
 
-ppk = kkv+Kpv-1;
+ppk = kkv+kpp-1;
 pps = kv+spp-1;
 //ppk=9;
 //pps=2;
 kps = (spp)/pps;//koefitsijent povtorennqa sliv: zaboronqaje twaste povtorennqa slodisp()
+kpk = kpp/ppk;
 reg();
 
 $("button.bp").on("click", function(event){ rpm(1); });

@@ -156,12 +156,12 @@ let utterance = new SpeechSynthesisUtterance(tp[wn][0]);
 utterance.lang = "ja";
 speechSynthesis.speak(utterance);
 }*/
-ab.onended = function(){ 
+/*ab.onended = function(){ 
 let utterance = new SpeechSynthesisUtterance("Привіт, світ! Говори нормально!");
 //let utterance = new SpeechSynthesisUtterance(tp[wn][0]);
 utterance.lang = "ua";
 speechSynthesis.speak(utterance);
-}
+}*/
 
 }
 

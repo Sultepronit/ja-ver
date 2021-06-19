@@ -1,3 +1,5 @@
+kp0=0;
+
 var tede=0;
 function kandisp(){
 	
@@ -10,9 +12,17 @@ function kandisp(){
 	for(x=0;x<1000;x++)
 	{
 	wn = vyp( 1,(ks-1) );
+		if(vpk[wn][0]>mxpk){continue;}
+		
 		if(wn==kbu0){continue;}
 		for(y=0;y<ktip;y++){	if(wn==kbu[y]){bubu=1; break;}	}
 		if(bubu){bubu=0; continue;}
+		
+		if(vpk[wn][0]>0){
+			if(kp0>=kpp){continue;}
+			if(kp0>ktip*kpk ){continue;}
+			kp0++;
+		}
 	kbu[ktip]=wn;
 	kbu0=wn;
 	break;

@@ -13,14 +13,16 @@ function slodisp(){
 	{
 	wn = vyp( 1,(kss-1) );
 		if(vp[wn][0]>mxp){continue;}
+		
+		if(wn==bu0){continue;}
+		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; break;}	}
+		if(bubu){bubu=0; continue;}
+		
 		if(vp[wn][0]>0){
 			if(sp0>=spp){continue;}
 			if(sp0>tip*kps){continue;}
 			sp0++;
 		}
-		if(wn==bu0){continue;}
-		for(y=0;y<tip;y++){	if(wn==bu[y]){bubu=1; break;}	}
-		if(bubu){bubu=0; continue;}
 	bu[tip]=wn;
 	bu0=wn;
 	break;
