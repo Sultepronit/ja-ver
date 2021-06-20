@@ -101,7 +101,7 @@ function rpmk(amp)
 	else
 	{
 		vpk[wn][np+1]--;	M++; ktip--;
-		if(vpk[wn][1]+vpk[wn][2]<-1){ktip++;}
+		if(vpk[wn][1]+vpk[wn][2]<-2){ktip++;}
 		if(vpk[wn][0]>0){ktip++;}
 	}
 }
