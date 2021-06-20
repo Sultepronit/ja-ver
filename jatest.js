@@ -118,7 +118,7 @@ a.play();
 a.onended = function(){ if(k<eau){sou0(++k);} }
 a.onerror = function(){
 var kan00=vypka(1);
-a.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+allau[k]+'&kanji='+kan00;
+a.src='https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+allau[k]+'&kanji='+kan00;
 a.play();
 a.onended = function(){ if(k<eau){sou0(++k);} }
 }
@@ -132,7 +132,7 @@ if(vo==0)
 a.src="sound/"+tp[wn][0]+'.mp3';
 a.play();
 a.onerror = function(){
-a.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+tp[wn][0]+'&kanji='+tp[wn][2];
+a.src='https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+tp[wn][0]+'&kanji='+tp[wn][2];
 a.play();
 }
 }
