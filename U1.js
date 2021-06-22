@@ -1,4 +1,6 @@
 var katrans = 1;
+var ifdade = 0;//rozpiznavaty DA, pry vyvtwenome TA, twy ni
+var ifi=0;//dozvolyty J
 
 var main = function()
 {"use strict";
