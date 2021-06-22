@@ -1,7 +1,7 @@
 var wn = 0;
 var tim = 0;
 var bul = 0;
-var ifa = 0;
+var ifa = 1;
 var np = 0;
 var a = new Audio();
 var bu = [0,0,0];
@@ -98,34 +98,12 @@ res+="/"+mms[ky][1][e];
 return res;
 }
 
-var allau=['',''], eau=0;
-function allauf()
-{eau=0;
-for(x=0;mms[wn][1][x];x++,eau++)
-{
-if(mms[wn][1][x]=="("){break;}
-if(mms[wn][1][x]==1){x++;eau--; continue;}
-allau[eau]=mms[wn][1][x];
-}eau--;
-}
-//var a = new Audio();
-function sou0(k)
-{var a = new Audio();
-a.src="sound/"+allau[k]+'.mp3';
-a.play();
-a.onerror = function(){
-var kan00=vypka(1);
-a.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+allau[k]+'&kanji='+kan00;
-a.play();
-a.onended = function(){ if(k<eau){sou0(++k);} }
-}
-}
-
 function sou(vo)
 {
-allauf();
-if(eau>-1){ sou0(0); }
-//$(".transl").append("SFSDF"+wn);
+//let utterance = new SpeechSynthesisUtterance("千三百六十二");
+let utterance = new SpeechSynthesisUtterance(or1);
+utterance.lang = "ja";
+speechSynthesis.speak(utterance);
 }
 
 function resf()
