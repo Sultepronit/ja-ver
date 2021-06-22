@@ -1,5 +1,4 @@
 var sp0=0;
-var katrans = 0;
 
 function slodisp(){
 	

@@ -210,7 +210,7 @@ var kann='';
 function test()
 {
 
-	if(tip==15){ resf(); }
+	if(tip==efe){ resf(); }
 	else
 	{
 	if(vp[wn][2]<-1){tip--; vp[wn][1]=-9; vp[wn][2]=0;}

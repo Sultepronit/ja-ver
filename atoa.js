@@ -206,7 +206,18 @@ function ifkaye(vk0)
 {var re=0;
 	for(y=1;y<ks;y++)
 	{
-		if( (tada(vk0))==tada(mm[y][0]) ){ if(vpk[y][0]>0){re=1;} break;}
+		if( vk0==mm[y][0] ){ if(vpk[y][0]>0){re=1;} break;}
+		else
+		{
+			if( (tada(vk0))==tada(mm[y][0]) )
+			{
+			if(vpk[y][0]<1){break;}
+				if(ifdade){ re=1; break; }
+				if(vk0=="ゃ"){re=1; break; }
+				if(vk0=="ゅ"){re=1; break; }
+				if(vk0=="ょ"){re=1; break; }
+			}
+		}
 	}
 return re;
 }
@@ -265,8 +276,16 @@ for(x=0;x<aed;x++)
 	oou+="<p class='jj'><span class='zel'>"+wor[x]+"</span></p>";
 	}
 	if(mit[x]==2){
-	oou+="<p class='trs'><span class='blu'>"+buk[x]+"</span></p>";
-	oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>";	}
+		if(ifi && wor[x]=="い"){
+		oou+="<p class='trs'> </p>";
+		oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>";	
+		}
+		else{
+		oou+="<p class='trs'><span class='blu'>"+buk[x]+"</span></p>";
+		oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>";	
+		}
+	}
+	
 	}
 	//oou+="<p class='jj'>";
 	oou+="</div>";

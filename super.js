@@ -13,6 +13,9 @@ var ifks = 0;
 var ppk=0, pps=0;
 var kps = 0;
 var kpk=0;
+var katrans = 0;
+var ifdade = 0;//rozpiznavaty DA, pry vyvtwenome TA, twy ni
+var ifi=1;//dozvolyty J
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 

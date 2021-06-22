@@ -11,7 +11,9 @@ var bu0=0;
 var kanpys0=0;
 var P=0, M=0;
 var sp0=0;
-var katrans = 1;
+var katrans = 1;//
+var ifdade = 0;//rozpiznavaty DA, pry vyvtwenome TA, twy ni
+var ifi=0;//dozvolyty J
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
