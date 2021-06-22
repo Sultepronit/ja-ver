@@ -200,12 +200,12 @@ var pov0=0;
 		if(mmf[wn][x]==';'){break;}
 		if(mmf[wn][x]=='='){ifz=1; continue;}
 		if(ifz==0){
-			if(mmf[wn][x]=='!'){or1+=mmf[wn][++x]+'　'; or0+='？？？　'; continue;}
+			if(mmf[wn][x]=='!'){or1+=mmf[wn][++x]+'　'; or0+='___　'; continue;}
 			or1+=mmf[wn][x]+'　';
 			or0+=mmf[wn][x]+'　';
 			}
 		else{
-			if(mmf[wn][x]=='!'){pr1+=mmf[wn][++x]; pr0+="???"; continue;}
+			if(mmf[wn][x]=='!'){pr1+=mmf[wn][++x]; pr0+="___ "; continue;}
 			pr1+=mmf[wn][x]+' ';
 			pr0+=mmf[wn][x]+' ';
 			}
@@ -219,6 +219,7 @@ var pov0=0;
 		$(".transc").replaceWith("<div class='transc'> </div>" );
 		$(".transc").append( rere( or1 ) );
 		$(".transl").replaceWith("<div class='transl'>"+pr0+"</div>");
+		if(ifa){ sou(); }
 		}
 		else{
 		$(".transc").replaceWith("<div class='transc'> </div>" );
