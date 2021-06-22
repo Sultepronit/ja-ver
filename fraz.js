@@ -98,14 +98,6 @@ res+="/"+mms[ky][1][e];
 return res;
 }
 
-function sou(vo)
-{
-//let utterance = new SpeechSynthesisUtterance("千三百六十二");
-let utterance = new SpeechSynthesisUtterance(or1);
-utterance.lang = "ja";
-speechSynthesis.speak(utterance);
-}
-
 function resf()
 {
 	var res='';
@@ -121,6 +113,29 @@ function resf()
 	a.src="sound/omedetou.mp3";
 	a.play();
 	$(".main").replaceWith(res);
+}
+
+var twyt='';
+function sou(vo)
+{twyt='';
+for(x=0;x<1000;x++)
+{
+	if(or1[x]);else{break;}
+	if(or1[x]=="ゐ"){twyt+="は"; continue;}
+	if(or1[x]=="{"){continue;}
+	//if(or1[x]=="/"){continue;}
+	if(or1[x]=="}"){continue;}
+	
+	
+	twyt+=or1[x];
+}
+	
+//let utterance = new SpeechSynthesisUtterance("千三百六十二");
+let utterance = new SpeechSynthesisUtterance(twyt);
+utterance.lang = "ja";
+utterance.rate = 0.9;
+speechSynthesis.speak(utterance);
+//$(".transl").append("/"+twyt);
 }
 
 var kann='';
@@ -148,6 +163,7 @@ var pov0=0;
 	}
 	
 	if( tip > (ksf/2) ){//tip=0;
+	//if( tip > (ksf-2) ){//tip=0;
 	resf();
 	
 	}
