@@ -2,7 +2,7 @@ var wn = 0;
 var tim = 0;
 var bul = 0;
 var np = 0;
-var ifa = 0;
+var ifa = 1;
 var a = new Audio();
 var bu = [0,0,0];
 var tip = 0;
@@ -252,7 +252,7 @@ var main = function() {
 "use strict";
 $(".orig").replaceWith("");
 
-//document.getElementById("ston").style.display = "none";
+document.getElementById("ston").style.display = "none";
 
 word();
 
@@ -260,14 +260,14 @@ $("button.bb").on("click", function(event){ word(0); });
 $("button.bm").on("click", function(event){ word(-1); });
 $("button.bp").on("click", function(event){ word(1); });
 
-/*$("button.spl").on( "click", function(event){ sou(); } );
+$("button.spl").on( "click", function(event){ sou(); } );
 $("button.stof").on("click", function(event){ ifa=0; //a.pause(); a.currentTime = 0.0;
 	document.getElementById("ston").style.display = "";
 	document.getElementById("sbn").style.display = "none";
-});*/
-$("button.ston").on("click", function(event){ sou();
-	/*document.getElementById("ston").style.display = "none";
-	document.getElementById("sbn").style.display = "";*/
+});
+$("button.ston").on("click", function(event){ ifa=1; sou();
+	document.getElementById("ston").style.display = "none";
+	document.getElementById("sbn").style.display = "";
 });
 
 };
