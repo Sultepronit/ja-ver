@@ -65,6 +65,13 @@ body {
 	margin-left: 55px;
 }
 
+.back {
+	font-size: 2em;
+	margin-bottom: 100px;
+	margin-top: 100px;
+	float: right;
+}
+
 
 .orig {
 	clear: both;
