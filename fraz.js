@@ -1,8 +1,8 @@
 var wn = 0;
 var tim = 0;
 var bul = 0;
-var ifa = 1;
 var np = 0;
+var ifa = 0;
 var a = new Audio();
 var bu = [0,0,0];
 var tip = 0;
@@ -11,6 +11,7 @@ var bu0=0;
 var kanpys0=0;
 var P=0, M=0;
 var sp0=0;
+var ifend = 0;
 var katrans = 1;
 var ifdade = 0;//rozpiznavaty DA, pry vyvtwenome TA, twy ni
 var ifi=0;//dozvolyty J
@@ -99,7 +100,8 @@ return res;
 }
 
 function resf()
-{
+{ifend=1;
+ifa=0;
 	var res='';
 	for(x=1;x<kss;x++)
 	{
@@ -118,6 +120,8 @@ function resf()
 var twyt='';
 function sou(vo)
 {twyt='';
+
+if(ifend==0){
 for(x=0;x<1000;x++)
 {
 	if(or1[x]);else{break;}
@@ -136,6 +140,8 @@ utterance.lang = "ja";
 utterance.rate = 0.9;
 speechSynthesis.speak(utterance);
 //$(".transl").append("/"+twyt);
+}
+
 }
 
 var kann='';
@@ -219,7 +225,7 @@ var pov0=0;
 		$(".transc").replaceWith("<div class='transc'> </div>" );
 		$(".transc").append( rere( or1 ) );
 		$(".transl").replaceWith("<div class='transl'>"+pr0+"</div>");
-		if(ifa){ sou(); }
+		//if(ifa){ sou(); }
 		}
 		else{
 		$(".transc").replaceWith("<div class='transc'> </div>" );
@@ -246,16 +252,22 @@ var main = function() {
 "use strict";
 $(".orig").replaceWith("");
 
-
+//document.getElementById("ston").style.display = "none";
 
 word();
 
 $("button.bb").on("click", function(event){ word(0); });
 $("button.bm").on("click", function(event){ word(-1); });
 $("button.bp").on("click", function(event){ word(1); });
-$("button.bsou").on("click", function(event){
-	if(ifa==0){ifa=1; document.getElementById("bs").style.color = "blue"; sou();
-	}else{ifa=0; document.getElementById("bs").style.color = "red"; a.pause(); a.currentTime = 0.0;}
+
+/*$("button.spl").on( "click", function(event){ sou(); } );
+$("button.stof").on("click", function(event){ ifa=0; //a.pause(); a.currentTime = 0.0;
+	document.getElementById("ston").style.display = "";
+	document.getElementById("sbn").style.display = "none";
+});*/
+$("button.ston").on("click", function(event){ sou();
+	/*document.getElementById("ston").style.display = "none";
+	document.getElementById("sbn").style.display = "";*/
 });
 
 };
