@@ -40,10 +40,11 @@ for(x=1;;x++)
 	if(x==aed){
 		if(buk[x-1]=='СУ')
 		{
-			for(;;){
+			/*for(;;){
 			if(buk[x-2]=='О'){break;}
 			buk[x-1]='С'; mit[x-1]=2; break;
-			}
+			}*/
+			if(buk[x-2]=='МА'){ buk[x-1]='С'; mit[x-1]=2; }
 		}
 				
 		break;}
