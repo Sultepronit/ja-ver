@@ -79,12 +79,16 @@ for(x=1;;x++)
 	{
 		if(buk[x-1][1]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][0]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
+		if(buk[x-1][2]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][1]=='А'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][0]=='А'){buk[x]='Й'; mit[x]=2; continue;}
+		if(buk[x-1][2]=='А'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][1]=='О'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][0]=='О'){buk[x]='Й'; mit[x]=2; continue;}
+		if(buk[x-1][2]=='О'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][1]=='У'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][0]=='У'){buk[x]='Й'; mit[x]=2; continue;}
+		if(buk[x-1][2]=='У'){buk[x]='Й'; mit[x]=2; continue;}
 	}
 	
 	if(buk[x]=='У')
@@ -97,7 +101,7 @@ for(x=1;;x++)
 		if(buk[x][0]=='Б'){buk[x-1]='М'; mit[x-1]=1; continue}
 		if(buk[x][0]=='П'){buk[x-1]='М'; mit[x-1]=1; continue}
 		if(buk[x][0]=='М'){buk[x-1]='М'; mit[x-1]=1; continue}
-		if(buk[x][0]=='В'){buk[x-1]='М'; mit[x-1]=1; continue}
+		//if(buk[x][0]=='В'){buk[x-1]='М'; mit[x-1]=1; continue}
 	}
 	
 	if(buk[x]=='ЬО')
