@@ -273,7 +273,16 @@ for(x=0;x<aed;x++)
 			if(wor[x]=='ょ'){buk[x]='よ'; break;}
 			if(wor[x]=='ゃ'){buk[x]='や'; break;}
 			if(wor[x]=='ゅ'){buk[x]='ゆ'; break;}
-			/*if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}*/
+			/*var yyy=0;
+			if(wor[x]=='ょ'){buk[x]='よ'; yyy=1;}
+			if(wor[x]=='ゃ'){buk[x]='や'; yyy=1;}
+			if(wor[x]=='ゅ'){buk[x]='ゆ'; yyy=1;}
+			if(katrans==0 || kataa)
+			{
+				if(yyy){buk[x]=' ';}
+			}*/
+			
+			//if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}
 			break;}
 		}
 		
