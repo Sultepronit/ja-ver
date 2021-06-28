@@ -38,18 +38,17 @@ for(x=1;;x++)
 {mit[x]=0;
 	
 	if(x==aed){
-		if(buk[x-1]=='СУ')
+		/*if(buk[x-1]=='СУ')
 		{
-			/*for(;;){
+			for(;;){
 			if(buk[x-2]=='О'){break;}
 			buk[x-1]='С'; mit[x-1]=2; break;
-			}*/
-			if(buk[x-2]=='МА'){ buk[x-1]='С'; mit[x-1]=2; }
-		}
+			}
+		}*/
 				
 		break;}
 	
-	if(wor[x]=='。')
+	/*if(wor[x]=='。')
 		{
 			if(buk[x-1]=='СУ')//す。
 			{
@@ -61,14 +60,16 @@ for(x=1;;x++)
 			{
 				if(wor[x-3]=='す'){buk[x-3]='С'; mit[x-3]=2;}
 			}
-		}
+		}*/
 		
-	if(buk[x-1]=='СУ')
+	/*if(buk[x-1]=='СУ')
 		{
 			if(wor[x]=='　' && wor[x+1]=='ね')
 			{	buk[x-1]='С'; mit[x-1]=2; }
-		}
+		}*/
 	if(wor[x-1]=='で' && wor[x]=='す'){ buk[x]='С'; mit[x]=2; }
+	if(wor[x-1]=='ま' && wor[x]=='す'){ buk[x]='С'; mit[x]=2; }
+	//if(buk[x-2]=='МА'){ buk[x-1]='С'; mit[x-1]=2; }
 			
 	if(wor[x]=='ゑ'){kan[x]='へ'; mit[x]=3; continue;}
 	if(wor[x]=='ゐ'){kan[x]='は'; mit[x]=3; continue;}
@@ -77,10 +78,14 @@ for(x=1;;x++)
 	if(buk[x-1]=='ц'){buk[x-1]=buk[x][0];}
 	if(buk[x]=='І')
 	{
+		if(buk[x-1]=='Н'){continue;}
+		if(buk[x-1]=='І'){continue;}
+		if(wor[x-1]=='　'){continue;}
 		if(buk[x-1][1]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][0]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][2]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
-		if(buk[x-1][1]=='А'){buk[x]='Й'; mit[x]=2; continue;}
+		buk[x]='Й'; mit[x]=2; continue;
+		/*if(buk[x-1][1]=='А'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][0]=='А'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][2]=='А'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][1]=='О'){buk[x]='Й'; mit[x]=2; continue;}
@@ -88,7 +93,8 @@ for(x=1;;x++)
 		if(buk[x-1][2]=='О'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][1]=='У'){buk[x]='Й'; mit[x]=2; continue;}
 		if(buk[x-1][0]=='У'){buk[x]='Й'; mit[x]=2; continue;}
-		if(buk[x-1][2]=='У'){buk[x]='Й'; mit[x]=2; continue;}
+		if(buk[x-1][2]=='У'){buk[x]='Й'; mit[x]=2; continue;}*/
+		
 	}
 	
 	if(buk[x]=='У')
@@ -106,30 +112,30 @@ for(x=1;;x++)
 	
 	if(buk[x]=='ЬО')
 	{
-		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='КІ'){buk[x-1]='К'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='РІ'){buk[x-1]='Р'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; mit[x]=1; continue;}
+		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='КІ'){buk[x-1]='К'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='РІ'){buk[x-1]='Р'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; continue;}
 	}
 	if(buk[x]=='ю')
 	{buk[x]='Ю';
-		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='КІ'){buk[x-1]='К'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='РІ'){buk[x-1]='Р'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; mit[x]=1; continue;}
+		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='КІ'){buk[x-1]='К'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='РІ'){buk[x-1]='Р'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; continue;}
 	}
 	if(buk[x]=='я')
 	{buk[x]='Я';
-		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='КІ'){buk[x-1]='К'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='РІ'){buk[x-1]='Р'; mit[x-1]=1; mit[x]=1; continue;}
-		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; mit[x]=1; continue;}
+		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='КІ'){buk[x-1]='К'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='РІ'){buk[x-1]='Р'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ДЖІ'){buk[x-1]='ДЖ'; mit[x-1]=1; continue;}
 	}
 	
 	if(buk[x]=='-')
@@ -268,23 +274,15 @@ for(x=0;x<aed;x++)
 	oou+="<p class='jj'><span class='red'>"+kan[x]+"</span></p>";	}
 	if(mit[x]==1){
 		
-		if( ifkaye(wor[x]) ){
+		/*if( ifkaye(wor[x]) ){
 			for(;;){
 			if(wor[x]=='ょ'){buk[x]='よ'; break;}
 			if(wor[x]=='ゃ'){buk[x]='や'; break;}
 			if(wor[x]=='ゅ'){buk[x]='ゆ'; break;}
-			/*var yyy=0;
-			if(wor[x]=='ょ'){buk[x]='よ'; yyy=1;}
-			if(wor[x]=='ゃ'){buk[x]='や'; yyy=1;}
-			if(wor[x]=='ゅ'){buk[x]='ゆ'; yyy=1;}
-			if(katrans==0 || kataa)
-			{
-				if(yyy){buk[x]=' ';}
-			}*/
 			
 			//if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}
 			break;}
-		}
+		}*/
 		
 	oou+="<p class='trs'><span class='zel'>"+buk[x]+"</span></p>";
 	oou+="<p class='jj'><span class='zel'>"+wor[x]+"</span></p>";

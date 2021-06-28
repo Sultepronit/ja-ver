@@ -1,5 +1,8 @@
 * {margin: 0;}
 
+
+
+
 main {
 font-size: 0.7em;
 /*margin: 1%;*/
@@ -11,7 +14,7 @@ body {
 }
 
 audio{
-width: 45%;
+width: 65%;
 padding: 2.3%;
 padding-bottom: 1%;
 padding-top: 1%;
@@ -23,6 +26,16 @@ padding-top: 1%;
 	position: sticky;
     top: 0;
 	background-color: white;
+}
+
+button {
+width: 20%;
+font-size: 2.5em;
+float: right;
+padding: 5px;
+/*argin: 1%;*/
+margin-right:3%;
+margin-top:1.5%;
 }
 
 .Kmi{
@@ -60,6 +73,7 @@ color: #111111;
 
 .jw {
 	float: left;
+	/*margin-top: 20px;*/
 }
 
 .jdi {
@@ -92,12 +106,6 @@ color: #111111;
 	text-align: center;
 }
 
-.ua {
-	margin: 0;
-	font-size: 2em;
-	/*float: left;*/
-}
-
 .ua2 {
 	/*margin: 4px;*/
 	margin:0;
@@ -107,6 +115,14 @@ color: #111111;
 	float: left;
 	clear: both;
 }
+
+.ua {
+	margin: 0;
+	font-size: 2em;
+	/*float: left;*/
+}
+
+
 .ua3 {
 	font-size: 4em;
 	clear: both;
@@ -118,6 +134,13 @@ color: #111111;
 .blu{color: blue;}
 .red{color: red;}
 .zel{color: green;}
+
+.d0{
+	margin: 1.5%;
+	margin-top: 0;
+    background-color: white;
+    padding: 2%;
+}
 
 .d1{
 	/*height: 400px;
