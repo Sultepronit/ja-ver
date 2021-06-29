@@ -81,6 +81,9 @@ for(x=1;;x++)
 		if(buk[x-1]=='Н'){continue;}
 		if(buk[x-1]=='І'){continue;}
 		if(wor[x-1]=='　'){continue;}
+		if(wor[x-1]=='、'){continue;}
+		if(wor[x-1]=='。'){continue;}
+		if(wor[x-1]=='b'){continue;}
 		if(buk[x-1][1]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][0]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][2]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
