@@ -1,7 +1,7 @@
-var myApp = "https://script.google.com/macros/s/AKfycbzmLyckCifwv_gPTWrsdOT_K84KHIc7oL2bJTvr1Ey1YtVbr5VddGXOsNU7oB1Ol3QQJA/exec";
+//var myApp = "https://script.google.com/macros/s/AKfycbzmLyckCifwv_gPTWrsdOT_K84KHIc7oL2bJTvr1Ey1YtVbr5VddGXOsNU7oB1Ol3QQJA/exec";
+//var myApp = "https://script.google.com/macros/s/AKfycbwOiNoAgJc-4DfE8w_Lt68Zx3ZY1EdbsH_bU76wX9NenMP5N4xUnpobYwchH9WizlJUfA/exec";
+var myApp = "https://script.google.com/macros/s/AKfycbxThwwlkM-tFcBXpvX2-_a8T2s1Yif6nENAwQtGbjBePrfmo_QS5nRXIaokiFY9UQqT6w/exec";
 
-/*var tp=[ [10, 10,10, 0,0, 0,0, 0,0, 1, 1, 0, "#"],
-['の', "НО", "乃", 0, 1], ];*/
 var tp='';
 
 function getTasks () {
@@ -18,7 +18,7 @@ function getTasks () {
         	//var tp = JSON.parse(xhr.response);
 			tp = JSON.parse(xhr.response);
         	//tasksTable (data);
-			$(".orig").append( tp[0]+" <br> " );
+			//$(".orig").append( tp[0]+" <br> " );
 			test();			
         }
     };
