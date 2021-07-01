@@ -143,7 +143,7 @@ else
 ab.src="sound/"+tp[wn][0]+'.mp3';
 ab.play();
 ab.onerror = function(){
-ab.src='http://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+tp[wn][0]+'&kanji='+tp[wn][2];
+ab.src='https://assets.languagepod101.com/dictionary/japanese/audiomp3.php?kana='+tp[wn][0]+'&kanji='+tp[wn][2];
 ab.play();
 }
 }
