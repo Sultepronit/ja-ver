@@ -46,7 +46,7 @@ body {
 
 .back {
 	font-size: 2em;
-	margin-top: 100px;
+	margin-top: 200px;
 	float: right;
 }
 
@@ -74,6 +74,15 @@ body {
 	height: 2em;
 	font-size: 5em;
 	margin: 2%;
+}
+
+.esc {
+	width: 29%;
+	height: 1.5em;
+	font-size: 5em;
+	margin: 3%;
+	margin-left: 35.4%;
+	background-color: red;
 }
 
 .bub {

@@ -214,11 +214,11 @@ var kann='';
 
 function test()
 {
-
+	if(vp[wn][2]<-1){tip--; vp[wn][1]=-9; vp[wn][2]=0;}
 	if(tip==efe){ resf(); }
 	else
 	{
-	if(vp[wn][2]<-1){tip--; vp[wn][1]=-9; vp[wn][2]=0;}
+	//if(vp[wn][2]<-1){tip--; vp[wn][1]=-9; vp[wn][2]=0;}
 	document.getElementById("time").textContent=tip+1;
 	var bubu=0;
 	for(x=0;x<1000;x++)
@@ -270,8 +270,14 @@ function rea(ar)
 	else
 	{M++;
 		vp[wn][2]--;
+		if(ar==6){ vp[wn][2]=-5; 
+		document.getElementById("info").textContent="Запам'ятай: "+tp[wn][0]+" = "+tp[wn][1]+" ";
+		$(".info0").replaceWith("<p class='info0'>&#128521;</p>");
+		if(ifa){ sout(); a.onended = function(){ test(); } }else{ test(); } }
+		else
+		{
 		document.getElementById("info").textContent="";
-		
+					
 		if(bb0){ $(".info0").replaceWith("<p class='info0'>Не здавайся &#128521;</p>"); bb0--;}
 		else{ $(".info0").replaceWith("<p class='info0'>Спробуй ще &#128521;</p>"); bb0++;}
 		if(ifa){ ax.src="sound/tin.mp3";	ax.play(); }
@@ -282,12 +288,8 @@ function rea(ar)
 		if(ar==3){ document.getElementById("d").textContent="X"; }
 		if(ar==4){ document.getElementById("e").textContent="X"; }
 		if(ar==5){ document.getElementById("f").textContent="X"; }
-		/*if(ar==0){ document.getElementById("a").style.color = "red"; }
-		if(ar==1){ document.getElementById("b").style.color = "red"; }
-		if(ar==2){ document.getElementById("c").style.color = "red"; }
-		if(ar==3){ document.getElementById("d").style.color = "red"; }
-		if(ar==4){ document.getElementById("e").style.color = "red"; }
-		if(ar==5){ document.getElementById("f").style.color = "red"; }*/
+		}
+		
 		
 	}
 }
@@ -309,6 +311,7 @@ $("button.c").on("click", function(event){ rea(2); });
 $("button.d").on("click", function(event){ rea(3); });
 $("button.e").on("click", function(event){ rea(4); });
 $("button.f").on("click", function(event){ rea(5); });
+$("button.esc").on("click", function(event){ rea(6); });
 
 /*
 $("button.bb").on("click", function(event){ word(0); });
