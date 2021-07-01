@@ -63,6 +63,15 @@ color: #111111;
 	font-family: "Arial";
 	font-size: 1.5em;
 	text-align: center;
+	padding-top: 0.1em;
+}
+.trsk {
+	height: 0.8em;
+	margin: 0;
+	font-family: "Arial";
+	font-size: 1.5em;
+	text-align: center;
+	padding-bottom: 0.1em;
 }
 
 .jj {

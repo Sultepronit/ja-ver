@@ -263,13 +263,14 @@ for(x=0;x<aed;x++)
 	if( wor[x]=='b'){oou+="</div><div class='js'>"; continue;}
 	oou+="<div class='jw'>";
 	if(mit[x]==0){
-	
+	var kka=0;
 	if( ifkaye(wor[x]) ){
-		if(katrans==1){buk[x]=wor[x];}else{buk[x]=' ';}
+		if(katrans==1){/*buk[x]=wor[x];*/ kka=1;}else{buk[x]=' ';}
 		if(kataa){buk[x]=' ';}
 		}
 			
-	oou+="<p class='trs'>"+buk[x]+"</p>";
+	if(kka){oou+="<p class='trsk'>"+wor[x]+"</p>";}
+	else{oou+="<p class='trs'>"+buk[x]+"</p>";}
 	oou+="<p class='jj'>"+wor[x]+"</p>";}
 	else{
 	if(mit[x]==3){
