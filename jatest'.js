@@ -17,7 +17,7 @@ var P=0, M=0;
 var sp0=0;
 var katrans = 0;
 
-te1=30; te2=40; efe=15; 
+//te1=31; te2=41; efe=15; 
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 

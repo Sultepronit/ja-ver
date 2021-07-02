@@ -3,6 +3,7 @@
 var myApp = "https://script.google.com/macros/s/AKfycbxThwwlkM-tFcBXpvX2-_a8T2s1Yif6nENAwQtGbjBePrfmo_QS5nRXIaokiFY9UQqT6w/exec";
 
 var tp='';
+var te1=31, te2=41, efe=15; 
 
 function getTasks () {
     var action = "getTasks";
@@ -17,6 +18,7 @@ function getTasks () {
         	//в случае успеха преобразуем полученный ответ в JSON и передаем отдельной функции, которая сформирует нам таблицу
         	//var tp = JSON.parse(xhr.response);
 			tp = JSON.parse(xhr.response);
+			te1=tp[0][1]; te2=tp[0][2]; efe=tp[0][3];
         	//tasksTable (data);
 			//$(".orig").append( tp[0]+" <br> " );
 			test();			
