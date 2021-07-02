@@ -70,7 +70,8 @@ body {
 	clear: both;
 	font-size: 2.7em;
 	/*text-align: center;*/
-	font-family:'Yu Mincho';
+	/*font-family:'Yu Mincho';*/
+	font-family: 'Noto Serif JP', serif;
 }
 
 .transc {
