@@ -93,10 +93,6 @@ body {
 	margin-top: 4em;
 }
 
-.ccc {
-
-}
-
 .transl {
 	font-size: 1.4em;
 	/*text-align: center;*/
@@ -105,6 +101,14 @@ body {
 	/*padding: 2%;
 	margin: 2%;*/
 }
+
+.numb {
+	font-size: 0.6em;
+}
+
+.nunu {	font-size: 3em; }
+.nunu0 {	font-size: 3em; }
+.bre {clear: both;}
 
 img {
 width: 2.3em;

@@ -16,6 +16,8 @@ var katrans = 1;
 var ifdade = 0;//rozpiznavaty DA, pry vyvtwenome TA, twy ni
 var ifi=0;//dozvolyty J
 
+var ifnum=1;
+
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
 function vsika(ky=1)
@@ -139,7 +141,7 @@ for(x=0;x<1000;x++)
 //let utterance = new SpeechSynthesisUtterance("千三百六十二");
 let utterance = new SpeechSynthesisUtterance(twyt);
 utterance.lang = "ja";
-utterance.rate = 0.9;
+utterance.rate = 0.8;
 speechSynthesis.speak(utterance);
 //$(".transl").append("/"+twyt);
 }
@@ -201,7 +203,42 @@ var pov0=0;
 	$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(ksf/2)+" "+P+"/"+M+"</p>");
 	//if(tim<2){$(".time").append(" "+kss);}
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][0]+"</p>");
-	
+	//ifnum=vyp(0,1);
+	if(ifnum)
+	{np=vyp(0,1);
+		//num0(100,9900,1);
+		//num0(11,29,1);
+		//num0(11,99,1);
+		skn=vyp(1,2)
+		switch(skn){
+		case 1: {num0(11,19,1); break;}
+		//case 2: {num0(20,90,10); break;}
+		case 2: {num0(20,290,10); break;}
+		//case 3: {num0(200,900,100); break;}
+		case 3: {num0(200,220,1); break;}
+		//case 4: {num0(1000,9000,1000); break;}
+		case 4: {num0(1000,9000,1); break;}
+		//case 5: {num0(10000,90000,10000); break;}
+		case 5: {num0(10000,20000,1000); break;}
+		//case 5: {num0(10000,90000,1); break;}
+		case 6: {num0(100000,900000,10000); break;}
+		}
+		or1=nkj;
+		if(alka){or1=nka+"、"+alka;}
+		$(".transc").replaceWith("<div class='transc'></div>" );
+		$(".transl").replaceWith("<div class='transl'></div>");
+		if(np){$(".numb").replaceWith("<div class='numb'><p class='nunu'>"+nnum+"</p></div>" );}
+		else{
+		$(".numb").replaceWith("<div class='numb'><p class='nunu0'></p><p class='nunu'>"+nkj+"</p></div>" );
+		$(".numb").append( rere( nka ) );
+		if(alkj){ $(".numb").append( "<p class='bre'></p>" ); $(".numb").append( "<p class='nunu'>"+alkj+"</p>" ); }
+		if(alka){ $(".numb").append( "<p class='bre'></p>" ); $(".numb").append( rere( alka ) ); }
+		if(ifa){/*or1=nkj;*/ sou();}
+		}
+	}
+	else
+	{
+	$(".numb").replaceWith("<div class='numb'></div>" );
 	or0=''; or1=''; pr0=''; pr1=''; ifz=0;
 	for(x=0;x<55;x++)
 	{
@@ -218,11 +255,6 @@ var pov0=0;
 			pr0+=mmf[wn][x]+' ';
 			}
 	}
-	
-	//$(".transc").replaceWith("<p class='transc'>"+or1+"</p>");
-	//$(".main").append("<p>"+pr1+"</p>");
-	/*$(".main").append("<p class='transc'>"+or0+"</p>");
-	$(".main").append("<p class='transl'>"+pr0+"</p>");*/
 		if(np==0){
 		$(".transc").replaceWith("<div class='transc'> </div>" );
 		$(".transc").append( rere( or1 ) );
@@ -234,20 +266,153 @@ var pov0=0;
 		$(".transc").append( rere( or0 ) );
 		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
 		}
+	}
+	
 	}else{bul=0;
 	document.getElementById("bp").style.backgroundColor ="green";
 	document.getElementById("bp").style.width ="46%";
 	document.getElementById("bm").style.display = "";
 	
-		if(np==0){
-		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
+		if(ifnum)
+		{
+			if(np){ $(".numb").append("<p class='nunu'>"+nkj+"</p>" );
+				$(".numb").append( rere( nka ) );
+				if(alkj){ $(".numb").append( "<p class='bre'></p>" ); $(".numb").append( "<p class='nunu'>"+alkj+"</p>" ); }
+				if(alka){$(".numb").append( "<p class='bre'></p>" ); $(".numb").append( rere( alka ) );}
+				}
+			else{ $(".nunu0").append( nnum ); }
 		}
-		else{
-		$(".transc").replaceWith("<div class='transc'> </div>" );
-		$(".transc").append( rere( or1 ) );
+		else
+		{
+			if(np==0){
+			$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
+			}
+			else{
+			$(".transc").replaceWith("<div class='transc'> </div>" );
+			$(".transc").append( rere( or1 ) );
+			}
 		}
+		
 	if(ifa){ sou(); }
 	}
+}
+
+var kanat='';
+function ntn(nu)
+{var re=''; kanat='';
+	switch(nu){
+		case '1': {re='一'; kanat='いち'; break;}
+		case '2': {re='二'; kanat='に'; break;}
+		case '3': {re='三'; kanat='さん'; break;}
+		case '4': {re='四'; kanat='よん'; break;}
+		case '5': {re='五'; kanat='ご'; break;}
+		case '6': {re='六'; kanat='ろく'; break;}
+		case '7': {re='七'; kanat='なな'; break;}
+		case '8': {re='八'; kanat='はち'; break;}
+		case '9': {re='九'; kanat='きゅう'; break;}
+	}
+return re;
+}//十
+
+var nnum=0;
+var tnu='';
+var ned=0;
+var nkj='';
+var nka='';
+var alka='',alkj='';
+var mae=0, man=[0,0,0];
+function num0(fr,tt,di)
+{
+nnum=0;
+tnu='';
+ned=0;
+nkj='';
+nka='';
+alka='';alkj='';
+var jui=0;
+
+	for(x=0,ee=0;x<999;x++)
+	{
+		nnum = vyp( (fr/di),(tt/di) )*di;
+		for(y=0;y<999;y++)
+		{
+			if(y==mae){ee=1; man[mae++]=nnum; break;}
+			if(man[y]==nnum){break;}
+		}
+		if(ee){break;}
+	}
+	tnu="*"+nnum+"*";
+	for(ned=1;ned<99;ned++)
+	{
+		if(tnu[ned]=='*'){ned--;break;}
+	}
+	for(var x=1,y=ned;x<=ned;x++,y--)
+	{
+		//nkj+=ntn(tnu[x]);
+		switch(y)
+		{
+			case 6: {
+				if(tnu[x]=='0');
+				else{ if(tnu[x]=='1');else{nkj+=ntn(tnu[x]); nka+=kanat;} nkj+='十'; nka+='じゅう　'; }
+				//nkj+=ntn(tnu[x]); nka+=kanat; nkj+='十'; nka+='じゅう';
+			break;}
+			case 5: {
+				/*if(tnu[x]=='0');
+				else{ if(tnu[x]=='1');else{nkj+=ntn(tnu[x]); nka+=kanat;} nkj+='万'; nka+='まん　'; break;	}*/
+				//if(tnu[x]=='1');else{nkj+=ntn(tnu[x]); nka+=kanat;} nkj+='万'; nka+='まん　';
+				nkj+=ntn(tnu[x]); nka+=kanat; nkj+='万'; nka+='まん　';
+			break;}
+			case 4: { 
+				switch(tnu[x])
+				{
+					case '0': {break;}
+					case '1': {nkj+='千'; nka+='せん　'; break;}
+					case '3': {nkj+='三千'; nka+='さんぜん　'; break; }
+					case '8': {nkj+='八千'; nka+='はっせん　'; break; }
+					default : {nkj+=ntn(tnu[x]); nka+=kanat; nkj+='千'; nka+='せん　'; break; }
+				}
+			/*if(tnu[x]=='0');
+			else{ if(tnu[x]=='1');else{nkj+=ntn(tnu[x]); nka+=kanat;} nkj+='千'; nka+='せん'; break;	}*/
+			break;}
+			case 3: {
+				switch(tnu[x])
+				{
+					case '0': {break;}
+					case '1': {nkj+='百'; nka+='ひゃく　'; break;}
+					case '3': {nkj+='三百'; nka+='さんびゃく　'; break; }
+					case '6': {nkj+='六百'; nka+='ろっぴゃく　'; break; }
+					case '8': {nkj+='八百'; nka+='はっぴゃく　'; break; }
+					default : {nkj+=ntn(tnu[x]); nka+=kanat; nkj+='百'; nka+='ひゃく　'; break; }
+				}
+			/*if(tnu[x]=='0');
+			else{ if(tnu[x]=='1');else{nkj+=ntn(tnu[x]); nka+=kanat;} nkj+='百'; nka+='ひゃく'; 	}*/
+			break;}
+			case 2: { 
+			if(tnu[x]=='0');
+			else{ if(tnu[x]=='1'){nka+='じゅう';}else{nkj+=ntn(tnu[x]); nka+=kanat; nka+='じゅう　';} nkj+='十'; }
+			
+			break;}
+			default: {nkj+=ntn(tnu[x]); nka+=kanat;}
+		}
+	}
+	
+	switch(nnum){
+		case 14: {alka='じゅうし'; break;}
+		case 17: {alka='じゅうしち'; break;}
+		case 40: {alka='しじゅう'; break;}
+		case 70: {alka='しちじゅう'; break;}
+		case 90: {alka='くじゅう'; break;}
+		case 700: {alka='しちひゃく'; break;}
+		case 900: {alka='くひゃく'; break;}
+		case 1000: {alka='いっせん'; alkj='一千'; break;}
+		case 4000: {alka='しせん'; break;}
+		case 7000: {alka='しちせん'; break;}
+		//case 10000: {alka='いちまん'; alkj='一万'; break;}
+	}
+	/*$(".numb").replaceWith("<div class='numb'><p class='nunu'>"+nnum+"</p><p class='nunu'>"+nkj+"</p></div>" );
+	or1=nkj; sou();
+	$(".numb").append( rere( nka ) );*/
+	
 }
 
 var main = function() {
@@ -257,6 +422,9 @@ $(".orig").replaceWith("");
 document.getElementById("ston").style.display = "none";
 
 word();
+//num0(11,29,1);
+//num0(100,900,100);
+//num0(100,9900,1);
 
 $("button.bb").on("click", function(event){ word(0); });
 $("button.bm").on("click", function(event){ word(-1); });
