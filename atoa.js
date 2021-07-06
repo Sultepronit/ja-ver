@@ -84,6 +84,7 @@ for(x=1;;x++)
 		if(wor[x-1]=='、'){continue;}
 		if(wor[x-1]=='。'){continue;}
 		if(wor[x-1]=='b'){continue;}
+		if( wor[x-1]=='う' && wor[x+1]=='ち' ){continue;}
 		if(buk[x-1][1]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][0]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
 		if(buk[x-1][2]=='Е'){buk[x]='Е'; mit[x]=3; continue;}
@@ -115,6 +116,9 @@ for(x=1;;x++)
 	
 	if(buk[x]=='ЬО')
 	{
+		if(buk[x-1]=='ХІ'){buk[x-1]='Х'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ПІ'){buk[x-1]='П'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='БІ'){buk[x-1]='Б'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; continue;}
@@ -124,6 +128,9 @@ for(x=1;;x++)
 	}
 	if(buk[x]=='ю')
 	{buk[x]='Ю';
+		if(buk[x-1]=='ХІ'){buk[x-1]='Х'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ПІ'){buk[x-1]='П'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='БІ'){buk[x-1]='Б'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; continue;}
@@ -133,6 +140,9 @@ for(x=1;;x++)
 	}
 	if(buk[x]=='я')
 	{buk[x]='Я';
+		if(buk[x-1]=='ХІ'){buk[x-1]='Х'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='ПІ'){buk[x-1]='П'; mit[x-1]=1; continue;}
+		if(buk[x-1]=='БІ'){buk[x-1]='Б'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ҐІ'){buk[x-1]='Ґ'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ЧІ'){buk[x-1]='Ч'; mit[x-1]=1; continue;}
 		if(buk[x-1]=='ШІ'){buk[x-1]='Ш'; mit[x-1]=1; continue;}
@@ -157,6 +167,7 @@ for(x=1;;x++)
 		if(buk[x][0]=='Ч'){buk[x-1]='К'; mit[x-1]=2; continue;}
 		if(buk[x][0]=='Ш'){buk[x-1]='К'; mit[x-1]=2; continue;}
 		if(buk[x][0]=='Т'){buk[x-1]='К'; mit[x-1]=2; continue;}
+		if(buk[x][0]=='К'){buk[x-1]='К'; mit[x-1]=2; continue;}
 	}
 	
 	if(buk[x-1]=='ШІ')
@@ -247,11 +258,13 @@ za=0; prot=0;
 		if(mit[x]==0)
 		{
 			if( ifkaye(wor[x]) ){za++;}else{prot++;}
+			if( wor[x] == '　' ){prot--;}
+			if( wor[x] == '。' ){prot--;}
 		}
 		else{prot++;}
 	}
 //if( za>prot ){kataa=1;}else{kataa=0;}
-if( za/aed>=0.5 ){kataa=1;}else{kataa=0;}
+if( za>=prot ){kataa=1;}else{kataa=0;}
 }
 var oou = "<div class='js'>";
 for(x=0;x<aed;x++)
