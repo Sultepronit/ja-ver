@@ -115,6 +115,7 @@ ifa=0;
 	a.src="sound/omedetou.mp3";
 	a.play();
 	$(".main").replaceWith(res);
+	saved();
 }
 
 var twyt='';
@@ -167,6 +168,10 @@ var pov0=0;
 		vp[wn][np+1]--;	M++; /*tip--;*/
 		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
 	}
+	if(np){ ToCell(wn+1,'C',vp[wn][np+1]); }else{ ToCell(wn+1,'B',vp[wn][np+1]); }
+	ToCell(wn+1,'A',vpf[wn][0]); 
+	ToCell(wn+1,'D',vpf[wn][1]);  ToCell(wn+1,'E',vpf[wn][2]);
+	//}
 	
 	}
 	
@@ -256,6 +261,8 @@ $(".orig").replaceWith("");
 
 document.getElementById("ston").style.display = "none";
 
+getTasks();
+//nawa();
 word();
 
 $("button.bb").on("click", function(event){ word(0); });
