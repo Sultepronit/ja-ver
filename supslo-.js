@@ -36,10 +36,10 @@ function slodisp(){
 	//$(".num").replaceWith("<p class='num'>slo!</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
 		if(np==0){
-		switch( vyp(1,3) ){
+		switch( vyp(1,2) ){
 			case 1: { $(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>"); break;}
-			case 2: { $(".orig").replaceWith("<p class='orig'><span class='sans'>"+vypka(wn)+"</span></p>"); break;}
-			case 3: { $(".orig").replaceWith("<p class='orig'><span class='serif'>"+vypka(wn)+"</span></p>"); break;}
+			//case 2: { $(".orig").replaceWith("<p class='orig'><span class='sans'>"+vypka(wn)+"</span></p>"); break;}
+			case 2: { $(".orig").replaceWith("<p class='orig'><span class='serif'>"+vypka(wn)+"</span></p>"); break;}
 		}
 		
 		

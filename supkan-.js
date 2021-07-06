@@ -40,8 +40,8 @@ function kandisp(){
 		if(np==0){
 		document.getElementById("container").style.display = "none";
 		if(tede){ $(".kanje").replaceWith("<p class='kanje'>"+mm[wn][2]+"</p>"); }
-		else{	$(".kanje").replaceWith("<p class='kanje'><span class='sans'>"+mm[wn][0]+"</span>"+mm[wn][0]+"</p>"); 
-			$(".kanje").append("<span class='serif'>"+mm[wn][0]+"</span>");	}
+		else{	$(".kanje").replaceWith("<p class='kanje'><span class='serif'>"+mm[wn][0]+"</span>"+mm[wn][0]+"</p>"); 
+			/*$(".kanje").append("<span class='serif'>"+mm[wn][0]+"</span>");*/	}
 		$(".kanaz").replaceWith("<p class='kanaz'> </p>");
 		}
 		else{if(ifa){ souk(0); }
@@ -65,8 +65,8 @@ function showk()
 		}
 		else{
 		if(tede){ $(".kanje").replaceWith("<p class='kanje'>"+mm[wn][2]+"</p>"); }
-		else{ $(".kanje").replaceWith("<p class='kanje'><span class='sans'>"+mm[wn][0]+"</span>"+mm[wn][0]+"</p>"); 
-			$(".kanje").append("<span class='serif'>"+mm[wn][0]+"</span>");	}
+		else{ $(".kanje").replaceWith("<p class='kanje'><span class='serif'>"+mm[wn][0]+"</span>"+mm[wn][0]+"</p>"); 
+			/*$(".kanje").append("<span class='serif'>"+mm[wn][0]+"</span>");*/	}
 		}
 		
 		/*if(mm[wn][3]!='-'){
