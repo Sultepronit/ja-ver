@@ -65,13 +65,21 @@ body {
 	float: right;
 }
 
+.serif {
+	font-family: 'Noto Serif JP', serif;
+}
+
+.sans {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
 /*slova---------------------------*/
 .orig {
 	clear: both;
 	font-size: 2.7em;
 	/*text-align: center;*/
 	/*font-family:'Yu Mincho';*/
-	font-family: 'Noto Serif JP', serif;
+	/*font-family: 'Noto Serif JP', serif;*/
 }
 
 .transc {

@@ -36,7 +36,13 @@ function slodisp(){
 	//$(".num").replaceWith("<p class='num'>slo!</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
 		if(np==0){
-		$(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>");
+		switch( vyp(1,3) ){
+			case 1: { $(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>"); break;}
+			case 2: { $(".orig").replaceWith("<p class='orig'><span class='sans'>"+vypka(wn)+"</span></p>"); break;}
+			case 3: { $(".orig").replaceWith("<p class='orig'><span class='serif'>"+vypka(wn)+"</span></p>"); break;}
+		}
+		
+		
 		$(".transl").replaceWith("<p class='transl'> </p>");
 		$(".transc").replaceWith("<div class='transc'>");
 		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
