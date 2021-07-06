@@ -156,18 +156,25 @@ var pov0=0;
 
 	
 	if(bul==0){bul=1; 
-	document.getElementById("bp").style.removeProperty("background-color");
-	document.getElementById("bp").style.width ="96%";
-	document.getElementById("bm").style.display = "none";
+	//document.getElementById("bp").style.removeProperty("background-color");
+	//document.getElementById("bp").style.width ="96%";
+	document.getElementById("bbpm").style.display = "none";
+	document.getElementById("sh").style.display = "";
 	tim++; tip++;
 	if(tim>1){
-	if(pm>0)
+		
+	switch(pm){
+		case 1 : {vp[wn][np+1]++; P++; break;}
+		case -1: {vp[wn][np+1]--; M++; break;}
+		case 0.3:{ if(np==0){vp[wn][np+1]=-0.3; M+=0.1;}else{vp[wn][np+1]=0.3; P+=0.1} break;}
+	}
+	
+	/*if(pm>0)
 	{	vp[wn][np+1]++;	P++;}
 	else
 	{
-		vp[wn][np+1]--;	M++; /*tip--;*/
-		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
-	}
+		vp[wn][np+1]--;	M++;
+	}*/
 	if(np){ ToCell(wn+1,'C',vp[wn][np+1]); }else{ ToCell(wn+1,'B',vp[wn][np+1]); }
 	ToCell(wn+1,'A',vpf[wn][0]); 
 	ToCell(wn+1,'D',vpf[wn][1]);  ToCell(wn+1,'E',vpf[wn][2]);
@@ -240,9 +247,10 @@ var pov0=0;
 		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
 		}
 	}else{bul=0;
-	document.getElementById("bp").style.backgroundColor ="green";
-	document.getElementById("bp").style.width ="46%";
-	document.getElementById("bm").style.display = "";
+	/*document.getElementById("bp").style.backgroundColor ="green";
+	document.getElementById("bp").style.width ="46%";*/
+	document.getElementById("bbpm").style.display = "";
+	document.getElementById("sh").style.display = "none";
 	
 		if(np==0){
 		$(".transl").replaceWith("<div class='transl'>"+pr1+"</div>");
@@ -265,9 +273,10 @@ getTasks();
 //nawa();
 word();
 
-$("button.bb").on("click", function(event){ word(0); });
+$("button.sh").on("click", function(event){ word(0); });
 $("button.bm").on("click", function(event){ word(-1); });
 $("button.bp").on("click", function(event){ word(1); });
+$("button.bpm").on("click", function(event){ word(0.3); });
 
 $("button.spl").on( "click", function(event){ sou(); } );
 $("button.stof").on("click", function(event){ ifa=0; //a.pause(); a.currentTime = 0.0;

@@ -37,18 +37,31 @@ body {
 	height: 200px;
 }
 
-.bp {
-	width: 46%;
+.sh {
+	width: 96%;
 	height: 200px;
-	/*background-color: green;*/
+	margin: 2%;
+}
+
+.bp {
+	width: 34%;
+	height: 200px;
+	background-color: green;
 	margin: 2%;
 }
 
 .bm {
-	width: 45%;
+	width: 34%;
 	height: 200px;
 	background-color: red;
 	margin: 2%;
+}
+
+.bpm {
+	width: 20%;
+	height: 200px;
+	background-color: yellow;
+	margin: 1%;
 }
 
 .sbu button {
