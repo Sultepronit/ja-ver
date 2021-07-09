@@ -27,9 +27,10 @@ function slodisp(){
 	break;
 	}
 	
-	if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
-	if( (vp[wn][4]+1)<vp[wn][3] ){np=1;}
+	//if(vp[wn][3]>0){np=vyp(0,1);}else{np=0;}
+	//if( (vp[wn][4]+1)<vp[wn][3] ){np=1;}
 	//if(vp[wn][0]>0){np=vyp(0,1);}
+	if(vp[wn][3]>vp[wn][4]){np=1;}else{np=0;}
 	////////////////
 	//$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][0]+"</p>");
