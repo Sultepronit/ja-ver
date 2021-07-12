@@ -99,10 +99,11 @@ function showk()
 function rpmk(amp)
 {tede=0;
 	if(amp>0)
-	{	vpk[wn][np+1]++;	P++;}
+	{	vpk[wn][np+1]++; vpk[wn][np+3]++; P++;}
 	else
 	{
 		vpk[wn][np+1]--;	M++; ktip--;
+		vpk[wn][np+3]--;
 		if(vpk[wn][1]+vpk[wn][2]<-2){ktip++;}
 		if(vpk[wn][0]>0){ktip++;}
 	}

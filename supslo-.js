@@ -81,10 +81,19 @@ function shows()
 function rpms(amp)
 {
 	if(amp>0)
-	{	vp[wn][np+1]++;	P++;}
+	{	vp[wn][np+1]++; vp[wn][np+3]++;	P++;}
 	else
 	{
 		vp[wn][np+1]--;	M++; tip--;
+		vp[wn][np+3]--;
+		if(vp[wn][np+3]<-1)
+		{	
+			if(vp[wn][0]==0)
+			{
+				if(np==0){vp[wn][3]=-1;}
+				else{vp[wn][3]=0; vp[wn][4]=0;}
+			}
+		}
 		if(vp[wn][1]+vp[wn][2]<-2){tip++;}
 		if(vp[wn][0]>0){tip++;}
 	}
