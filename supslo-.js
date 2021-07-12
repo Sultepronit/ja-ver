@@ -1,4 +1,5 @@
 var sp0=0;
+//var prr=7;
 
 function slodisp(){
 	
@@ -31,23 +32,40 @@ function slodisp(){
 	//if( (vp[wn][4]+1)<vp[wn][3] ){np=1;}
 	//if(vp[wn][0]>0){np=vyp(0,1);}
 	if(vp[wn][3]>vp[wn][4]){np=1;}else{np=0;}
+	//np=0;
+	
 	////////////////
-	//$(".time").replaceWith("<p class='time'>"+tim+"/"+tip+"/"+(kv+spp)+" "+P+"/"+M+"</p>");
 	$(".num").replaceWith("<p class='num'>"+wn+" : "+vp[wn][0]+"</p>");
-	//$(".num").replaceWith("<p class='num'>slo!</p>");
 	$(".transc").replaceWith("<p class='transc'> </p>");
-		if(np==0){
-		switch( vyp(1,2) ){
-			case 1: { $(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>"); break;}
-			//case 2: { $(".orig").replaceWith("<p class='orig'><span class='sans'>"+vypka(wn)+"</span></p>"); break;}
-			case 2: { $(".orig").replaceWith("<p class='orig'><span class='serif'>"+vypka(wn)+"</span></p>"); break;}
-		}
-		
-		
-		$(".transl").replaceWith("<p class='transl'> </p>");
-		$(".transc").replaceWith("<div class='transc'>");
-		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
-		if(ifa){ sou(); }
+		if(np==0)
+		{
+			$(".transl").replaceWith("<p class='transl'> </p>");
+			$(".transc").replaceWith("<div class='transc'></div>");
+			//$(".transc").append( atoa1( vsit(wn) ),"</div>" );
+			iftwy=1;
+			var transcv = atoa1( vsit(wn) );
+			if(np==0 && prr<1){protw=1;}
+			if(protw==0)
+			{
+			switch( vyp(1,2) ){
+				case 1: { $(".orig").replaceWith("<p class='orig'>"+vypka(wn)+"</p>"); break;}
+				case 2: { $(".orig").replaceWith("<p class='orig'><span class='serif'>"+vypka(wn)+"</span></p>"); break;}
+			}
+			//$(".transc").append( atoa1( vsit(wn) ) );
+			$(".transc").append( transcv );
+			if(ifa){ sou(); }
+			}
+			else
+			{
+				$(".com").replaceWith("<p class='com'>Прочитай мене&#128521;</p>");
+				$(".orig").replaceWith("<div class='orig'><p class='cent'></p></div>");
+				switch( vyp(1,2) ){
+				//case 1: { $(".cent").append(vsit(wn)); break;}
+				case 1: { $(".cent").append(kanac); break;}
+				case 2: { $(".cent").append("<span class='serif'>"+kanac+"</span>"); break;}
+				}
+				//$(".transc").append( prr );
+			}
 		
 		}
 		else{
@@ -63,23 +81,46 @@ function shows()
 	$(".orig").replaceWith("<p class='orig'>"+vsika(wn)+"</p>");	
 	
 		if(np==0){
+			if(protw==0)
+			{
 			vtr="<div class='transl'>"+mms[wn][2]+"";
 			vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
-		$(".transl").replaceWith(vtr);
-		/*var td=tada(mms[wn][1]);
-		if(td!=mms[wn][1]){		$(".bgk").append(td); }
-		$(".orig").append("<img class='k2' src='kanji-wp/1"+mms[wn][1][0]+".gif'>");*/
-		
+			$(".transl").replaceWith(vtr);
+			}
+			else			
+			{
+			$(".com").replaceWith("<p class='com'>Вдалось? І ще переклади&#128521;</p>");
+			$(".transc").replaceWith("<div class='transc'></div>");
+			$(".transc").append( atoa1( vsit(wn) ) );
+			}
 		}
 		else{
-		$(".transc").replaceWith("<div class='transc'>");
-		$(".transc").append( atoa1( vsit(wn) ),"</div>" );
+		$(".transc").replaceWith("<div class='transc'></div>");
+		$(".transc").append( atoa1( vsit(wn) ) );
 		}
 	if(ifa){ sou(); }
 }
 
+function showpr(apm)
+{
+	vtr="<div class='transl'>"+mms[wn][2]+"";
+	vtr+="<p><img src='zobr/"+vypka(wn)+".jpg'></p></div>";
+	$(".transl").replaceWith(vtr);
+	if(ifa){ sou(); }
+	$(".com").replaceWith("<p class='com'></p>");
+	if(apm>0){vp[wn][5]++;}
+	else{ vp[wn][5]--; if(vp[wn][5]>1){vp[wn][5]=1;}else{ if(vp[wn][5]<-1){vp[wn][5]=-1;} } }
+	ToCellS(wn+1,'F',vp[wn][5]);
+	protw=0;
+}
+
 function rpms(amp)
 {
+	/*if(protw==1)
+	{
+		showpr();
+	}
+	else{*/
 	if(amp>0)
 	{	vp[wn][np+1]++; vp[wn][np+3]++;	P++;}
 	else
@@ -100,6 +141,7 @@ function rpms(amp)
 	if(np){ ToCellS(wn+1,'C',vp[wn][np+1]); }else{ ToCellS(wn+1,'B',vp[wn][np+1]); }
 	ToCellS(wn+1,'H',mms[wn][0]); ToCellS(wn+1,'A',vp[wn][0]); 
 	ToCellS(wn+1,'D',vp[wn][3]);  ToCellS(wn+1,'E',vp[wn][4]);
+	//}
 }
 
 function vypka(au0=0)

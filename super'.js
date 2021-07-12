@@ -16,6 +16,7 @@ var kpk=0;
 var katrans = 0;
 var ifdade = 0;//rozpiznavaty DA, pry vyvtwenome TA, twy ni
 var ifi=1;//dozvolyty J
+var protw=0;//protwytaj mene
 
 function vyp(b,e){ return( Math.round(Math.random()*(e-b))+b); }
 
@@ -95,8 +96,11 @@ function show()
 
 function rpm(apm)
 {
+	if(protw){showpr(apm);}
+	else{
 	if(ifks){rpms(apm);}else{rpmk(apm);}
 	reg();
+	}
 }
 
 function souu()
@@ -115,7 +119,7 @@ document.getElementById("ston").style.display = "none";
 
 ppk = kkv+kpp-1;
 pps = kv+spp-1;
-//ppk=9;
+//ppk=1;
 //pps=2;
 kps = (spp)/pps;//koefitsijent povtorennqa sliv: zaboronqaje twaste povtorennqa slodisp()
 kpk = kpp/ppk;

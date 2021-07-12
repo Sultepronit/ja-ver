@@ -14,6 +14,10 @@ var sps = ['','',''];
 var ski = [0,0,0,0,0];
 var ska=5;
 
+//var za=10, prot=10;
+var iftwy=0;
+var prr=0;
+
 function atoa1(aaa)
 {wor=aaa;
 
@@ -247,12 +251,13 @@ function ifkaye(vk0)
 return re;
 }
 
+var kanac="";
 function out1()
 {var za=0, prot=0;
 var kataa=0;
 if(katrans==1)//zamina na pusti mistqsa u vidpovidnyx slovax
 {
-za=0; prot=0;
+za=0; prot=0; 
 	for(x=0;x<aed;x++)
 	{
 		if(mit[x]==0)
@@ -266,7 +271,25 @@ za=0; prot=0;
 //if( za>prot ){kataa=1;}else{kataa=0;}
 if( za>=prot ){kataa=1;}else{kataa=0;}
 }
+if(iftwy)//oblik
+{
+prr=0; 
+	for(x=0;x<aed;x++)
+	{
+		//if(mit[x]==0)
+		{
+			if( wor[x] == '　' ){continue;}
+			if( wor[x] == '。' ){continue;}
+			if( wor[x] == '、' ){continue;}
+			if( wor[x] == '/' ){continue;}
+			if( ifkaye(wor[x]) ){}else{prr++;}
+		}
+		//else{prr++;}
+	}
+}
+
 var oou = "<div class='js'>";
+kanac ="";
 for(x=0;x<aed;x++)
 {
 	/*for(y=1;y<ks;y++)
@@ -284,11 +307,11 @@ for(x=0;x<aed;x++)
 			
 	if(kka){oou+="<p class='trsk'>"+buk[x]+"</p>";}
 	else{oou+="<p class='trs'>"+buk[x]+"</p>";}
-	oou+="<p class='jj'>"+wor[x]+"</p>";}
+	oou+="<p class='jj'>"+wor[x]+"</p>"; kanac+=wor[x]; }
 	else{
 	if(mit[x]==3){
 	oou+="<p class='trs'><span class='red'>"+buk[x]+"</span></p>";
-	oou+="<p class='jj'><span class='red'>"+kan[x]+"</span></p>";	}
+	oou+="<p class='jj'><span class='red'>"+kan[x]+"</span></p>"; kanac+="<span class='red'>"+kan[x]+"</span>"; }
 	if(mit[x]==1){
 		
 		/*if( ifkaye(wor[x]) ){
@@ -302,16 +325,16 @@ for(x=0;x<aed;x++)
 		}*/
 		
 	oou+="<p class='trs'><span class='zel'>"+buk[x]+"</span></p>";
-	oou+="<p class='jj'><span class='zel'>"+wor[x]+"</span></p>";
+	oou+="<p class='jj'><span class='zel'>"+wor[x]+"</span></p>"; kanac+="<span class='zel'>"+wor[x]+"</span>";
 	}
 	if(mit[x]==2){
 		if(ifi && wor[x]=="い"){
 		oou+="<p class='trs'> </p>";
-		oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>";	
+		oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>"; kanac+="<span class='blu'>"+wor[x]+"</span>";
 		}
 		else{
 		oou+="<p class='trs'><span class='blu'>"+buk[x]+"</span></p>";
-		oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>";	
+		oou+="<p class='jj'><span class='blu'>"+wor[x]+"</span></p>"; kanac+="<span class='blu'>"+wor[x]+"</span>";
 		}
 	}
 	
