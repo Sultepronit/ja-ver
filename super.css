@@ -93,6 +93,12 @@ body {
 	/*text-align: center;*/
 	clear: both;
 }
+
+.com {text-align: center; } 
+.cent {	
+	text-align: center;
+	font-size: 0.7em;
+}
 /*slova---------------------------kinetsq*/
 
 .bb {
